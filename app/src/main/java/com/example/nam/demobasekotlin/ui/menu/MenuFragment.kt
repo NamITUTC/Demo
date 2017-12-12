@@ -2,12 +2,13 @@ package com.example.nam.demobasekotlin.ui.menu
 
 
 import android.content.Intent
-import android.os.Bundle
+import android.widget.Toast
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
+import com.example.nam.demobasekotlin.base.BaseSubActivity
 import com.example.nam.demobasekotlin.base.BaseView
-import com.example.nam.demobasekotlin.ui.activity.TestActivity
+import com.example.nam.demobasekotlin.view.Canvasss
 import com.example.nam.demobasekotlin.view.Constant
 import com.example.nam.demobasekotlin.view.Router
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -38,18 +39,16 @@ class MenuFragment : BaseFragment() {
     }
 
     override fun initData() {
-/*
-        var intent:Intent
-        var bundle=intent.getBundleExtra(BaseSubActivity.EXTRA_FRAGMENT_ARGS)
+
+        var bundle=activity.intent.getBundleExtra(BaseSubActivity.EXTRA_FRAGMENT_ARGS)
         var hello= bundle.getString(Constant.HELLO)
         Toast.makeText(activity, hello,Toast.LENGTH_LONG).show()
-*/
     }
 
     override fun initView() {
 btn_open_activity.setOnClickListener {
     mRouter.goToTestActivity()
-    var intent:Intent=Intent(activity,TestActivity::class.java)
+    var intent=Intent(activity,Canvasss::class.java)
     /*var bundle:Bundle= Bundle()
     bundle.putString("a","Nam")
     bundle.putString("b","Nguyen")

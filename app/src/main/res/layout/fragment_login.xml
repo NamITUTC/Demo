@@ -15,5 +15,16 @@
         android:layout_height="wrap_content"
         android:text="Chuyen"
         android:id="@+id/btn_chuyen"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_add"
+        android:text="Add"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_view"
+        android:text="ViewNote"/>
+
 
 </LinearLayout>
