@@ -1,18 +1,15 @@
 package com.example.nam.demobasekotlin.di.module
 
+import com.example.nam.demobasekotlin.manager.NoteDAO
+import com.example.nam.demobasekotlin.manager.NoteImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
-import io.realm.Realm
 
 /**
  * Created by nam /12/2017.
  */
 @Module
-class RealmModule{
-
-    @Provides
-    fun getRealm():Realm
-    {
-        return Realm.getDefaultInstance()
-    }
+abstract class RealmModule {
+    @Binds
+    abstract fun getRealm(noteDAO: NoteImpl): NoteDAO
 }

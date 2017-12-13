@@ -7,6 +7,7 @@ import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import com.example.nam.demobasekotlin.manager.NoteDAO
 import com.example.nam.demobasekotlin.models.Note
 import com.example.nam.demobasekotlin.view.Constant
 import com.example.nam.demobasekotlin.view.Router
@@ -23,6 +24,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener {
     lateinit var mRouter: Router
     @Inject
     lateinit var presenter: LoginPresenter
+    @Inject
+    lateinit var NoteDAO :NoteDAO
 
     override fun injectDependence() {
         component.inject(this)
