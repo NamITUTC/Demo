@@ -2,7 +2,6 @@ package com.example.nam.demobasekotlin.manager
 
 import android.util.Log
 import com.example.nam.demobasekotlin.models.Note
-import java.util.*
 import javax.inject.Inject
 
 /**
@@ -10,20 +9,21 @@ import javax.inject.Inject
  */
 class NoteImpl @Inject constructor() : NoteDAO {
 
-    //private lateinit var realmManager: RealmManager<RealmObject>
-    override fun save(note: Note) {
-        val ram = Random()
-        val idram=ram.nextInt()
-        note.id=idram
-        note.title="Nam"
-        note.content="Nguyen"
-RealmManager.save(note)
+
+    override fun deleteNote(idCurrent: Int) {
+
+        RealmManager.deleteWhere(Note::class.java,"id",idCurrent)
     }
 
-    override fun viewNote() {
-        var note:Note = RealmManager.findFirst(Note::class.java)!!
-        var notes=RealmManager.findAll(Note::class.java)
-        for(note in notes)
-        Log.d("note",note.title+note.id)
+
+    override fun save(note: Note) {
+        RealmManager.save(note)
+    }
+
+    override fun viewNote(): List<Note> {
+        var notes = RealmManager.findAll(Note::class.java)
+        for (note in notes)
+            Log.d("note", note.title + note.id)
+        return notes
     }
 }

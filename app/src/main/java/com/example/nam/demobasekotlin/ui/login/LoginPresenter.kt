@@ -12,4 +12,5 @@ interface LoginPresenter : BasePresenter<BaseView>{
     fun next()
     fun addNote(note: Note)
     fun viewNote()
+    fun deleteNote(idCurrent: Int)
 }

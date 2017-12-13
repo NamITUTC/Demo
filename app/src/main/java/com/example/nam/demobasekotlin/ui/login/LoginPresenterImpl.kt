@@ -9,18 +9,23 @@ import javax.inject.Inject
 /**
  * Created by nam on 08/12/2017.
  */
-class LoginPresenterImpl@Inject constructor() : BasePresenterImpl<BaseView>(), LoginPresenter {
+class LoginPresenterImpl @Inject constructor() : BasePresenterImpl<BaseView>(), LoginPresenter {
+    override fun deleteNote(idCurrent: Int) {
+        NoteDAO.deleteNote(idCurrent)
+    }
 
     @Inject
-    lateinit var NoteDAO :NoteDAO
+    lateinit var NoteDAO: NoteDAO
+
     override fun viewNote() {
-     NoteDAO.viewNote()
+        var nodes = NoteDAO.viewNote()
         //Log.d("note", note!!.title)
+        getView()!!.load(nodes)
 
     }
 
     override fun addNote(note: Note) {
-    NoteDAO.save(note)
+        NoteDAO.save(note)
     }
 
     override fun next() {

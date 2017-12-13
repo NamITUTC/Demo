@@ -1,7 +1,9 @@
 package com.example.nam.demobasekotlin.ui.menu
 
+import com.example.nam.demobasekotlin.base.BaseView
+
 /**
- * Created by nam on 11/12/2017.
+ * Cry nam on 11/12/2017.
  */
-interface MenuView {
+interface MenuView : BaseView {
 }

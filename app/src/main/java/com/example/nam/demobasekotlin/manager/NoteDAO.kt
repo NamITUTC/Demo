@@ -7,5 +7,6 @@ import com.example.nam.demobasekotlin.models.Note
  */
 interface NoteDAO{
     fun save(note : Note)
-    fun viewNote()
+    fun viewNote():List<Note>
+    fun deleteNote(idCurrent: Int)
 }

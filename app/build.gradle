@@ -29,7 +29,7 @@ ext.VERSION_BUTTER_KNIFE = "8.8.1"
 ext.VERSION_DAGGER = "2.9"
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -40,14 +40,12 @@ dependencies {
     implementation "com.jakewharton:butterknife:$VERSION_BUTTER_KNIFE"
     annotationProcessor "com.jakewharton:butterknife-compiler:$VERSION_BUTTER_KNIFE"
     //Dagger 2
-
     compile "com.google.dagger:dagger:$VERSION_DAGGER"
     kapt "com.google.dagger:dagger-compiler:$VERSION_DAGGER"
-
-
     annotationProcessor "com.google.dagger:dagger-compiler:$VERSION_DAGGER"
     provided 'javax.annotation:jsr250-api:1.0'
-    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.1.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
 
 kapt {

@@ -8,6 +8,7 @@ import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseSubActivity
 import com.example.nam.demobasekotlin.base.BaseView
+import com.example.nam.demobasekotlin.models.Note
 import com.example.nam.demobasekotlin.view.Canvasss
 import com.example.nam.demobasekotlin.view.Constant
 import com.example.nam.demobasekotlin.view.Router
@@ -18,6 +19,9 @@ import javax.inject.Inject
  * Created by nam on 11/12/2017.
  */
 class MenuFragment : BaseFragment() {
+    override fun load(nodes: List<Note>) {
+
+    }
 
 
     @Inject

@@ -39,8 +39,6 @@ class App : Application(){
         var realmConfiguration = RealmConfiguration.Builder()
                 .name("demo")
                 .deleteRealmIfMigrationNeeded()
-                .rxFactory(RealmObservableFactory())
-                .migration( HrmMigration())
                 .build()
         Realm.setDefaultConfiguration(realmConfiguration)
         realm= Realm.getInstance(realmConfiguration)

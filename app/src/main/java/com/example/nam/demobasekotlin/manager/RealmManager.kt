@@ -16,11 +16,10 @@ class RealmManager<T : RealmObject> {
         fun <T : RealmObject> save(objects: T) {
             val realm: Realm = Realm.getDefaultInstance()
             try {
-                realm.run {
-                    beginTransaction()
-                    insertOrUpdate(objects)
-                    commitTransaction()
-                }
+                realm.beginTransaction()
+                realm.copyToRealmOrUpdate(objects)
+                realm.commitTransaction()
+
             } finally {
                 realm.close()
             }
@@ -55,6 +54,25 @@ class RealmManager<T : RealmObject> {
             }
         }
 
+        fun <T : RealmObject> deleteWhere(clazz: Class<T>, where: String,values:Int) {
+            val realm = Realm.getDefaultInstance()
+            try {
+                realm.beginTransaction()
+                var query = realm.where(clazz).equalTo(where,values)
+                //query = where.onQuery(query)
+                val listResults = query.findAll()
+                if (listResults != null && listResults.size > 0)
+                    listResults.deleteAllFromRealm()
+                realm.commitTransaction()
+            } finally {
+                realm.close()
+            }
+        }
+
+        fun <T : RealmObject> findFirst(clazz: Class<T>): T? {
+            return findFirst(clazz, null)
+        }
+
         fun <T : RealmObject> findFirst(clazz: Class<T>, where: OnQuerySearch<T>?): T? {
             val realm = Realm.getDefaultInstance()
             try {
@@ -74,6 +92,18 @@ class RealmManager<T : RealmObject> {
         }
 
 
+        fun <T : RealmObject> findAll(clazz: Class<T>, sort: String?, limit: Int): List<T> {
+            return findAll(clazz, sort, limit, null)
+        }
+
+        fun <T : RealmObject> findAll(clazz: Class<T>, sort: String?): List<T> {
+            return findAll(clazz, sort, -1)
+        }
+
+        fun <T : RealmObject> findAll(clazz: Class<T>): List<T> {
+            return findAll(clazz, null)
+        }
+
         fun <T : RealmObject> findAll(clazz: Class<T>, sort: String?, limit: Int, querySearch: OnQuerySearch<T>?): List<T> {
             val realm = Realm.getDefaultInstance()
             try {
@@ -86,26 +116,10 @@ class RealmManager<T : RealmObject> {
                     listResult = realm.copyFromRealm(listData)
                 }
                 return if (limit > 0 && limit < listResult.size) listResult.subList(0, limit) else listResult
+                realm.close()
             } finally {
                 realm.close()
             }
-        }
-
-        fun <T : RealmObject> findAll(clazz: Class<T>, sort: String?, limit: Int): List<T> {
-            return findAll(clazz, sort, limit,null)
-        }
-
-        fun <T : RealmObject> findAll(clazz: Class<T>, sort: String?): List<T> {
-            return findAll(clazz, sort, -1)
-        }
-
-        fun <T : RealmObject> findAll(clazz: Class<T>): List<T> {
-            return findAll(clazz,null)
-        }
-
-
-        fun <T : RealmObject> findFirst(clazz: Class<T>): T? {
-            return findFirst(clazz, null)
         }
 
 
