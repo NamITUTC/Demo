@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frm_menu"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment1"/>
+        android:text="Fragment1" />
+
     <Button
+        android:id="@+id/btn_open_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="OpenActivity"
-        android:id="@+id/btn_open_activity"/>
+        android:text="OpenActivity" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_load_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LoadServer" />
+
+        <Button
+            android:id="@+id/btn_clear_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ClearData" />
+
+        <Button
+            android:id="@+id/btn_load_local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LoadLocal" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rc_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

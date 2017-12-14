@@ -25,8 +25,11 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
 }
+ext.VERSION_RX_JAVA = "2.0.6"
+ext.VERSION_RX_ANDROID = "2.0.1"
 ext.VERSION_BUTTER_KNIFE = "8.8.1"
 ext.VERSION_DAGGER = "2.9"
+ext.VERSION_RETROFIT = "2.2.0"
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -45,7 +48,18 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$VERSION_DAGGER"
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'io.reactivex.rxjava2:rxjava:2.1.1'
+
+    //recyclerView
     implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$VERSION_RETROFIT"
+    compile "com.squareup.retrofit2:converter-gson:$VERSION_RETROFIT"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$VERSION_RETROFIT"
+
+    //rx
+    compile "io.reactivex.rxjava2:rxandroid:$VERSION_RX_ANDROID"
+    compile "io.reactivex.rxjava2:rxjava:$VERSION_RX_JAVA"
 }
 
 kapt {
