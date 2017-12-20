@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.login.adapter
+package com.example.nam.demobasekotlin.ui.test.login.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

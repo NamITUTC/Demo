@@ -1,50 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/frm_menu"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fragment1" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_open_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OpenActivity" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            ></android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager">
 
-        <Button
-            android:id="@+id/btn_load_server"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LoadServer" />
-
-        <Button
-            android:id="@+id/btn_clear_data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ClearData" />
-
-        <Button
-            android:id="@+id/btn_load_local"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LoadLocal" />
-
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rc_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-
-</LinearLayout>
+    </android.support.v4.view.ViewPager>
+</android.support.design.widget.CoordinatorLayout>

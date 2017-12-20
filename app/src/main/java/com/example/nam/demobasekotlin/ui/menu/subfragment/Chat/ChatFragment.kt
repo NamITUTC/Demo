@@ -1,30 +1,26 @@
-package com.example.nam.demobasekotlin.ui.menu
-
+package com.example.nam.demobasekotlin.ui.menu.subfragment.Chat
 
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
-import com.example.nam.demobasekotlin.ui.menu.adapter.MenuAdapter
-import kotlinx.android.synthetic.main.fragment_menu.*
 import javax.inject.Inject
 
 /**
  * Created by nam on 20/12/2017.
  */
-class MenuFragment : BaseFragment() {
+class ChatFragment: BaseFragment() {
+
 
     @Inject
-    lateinit var presenter:MenuPresenter
-
-    lateinit var adapter : MenuAdapter
+    lateinit var presenter:ChatPresenter
 
     override fun injectDependence() {
         component.inject(this)
     }
 
     override fun getLayOutRes(): Int {
-        return R.layout.fragment_menu
+        return R.layout.fragment_chat
     }
 
     override fun initData() {
@@ -32,13 +28,9 @@ class MenuFragment : BaseFragment() {
     }
 
     override fun initView() {
-        adapter=MenuAdapter(fragmentManager)
-        viewPager.adapter=adapter
-        tabLayout.setupWithViewPager(viewPager)
     }
 
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
-    return presenter as BasePresenter<T>
+        return  presenter as BasePresenter<T>
     }
-
 }

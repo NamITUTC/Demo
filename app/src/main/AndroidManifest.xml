@@ -26,7 +26,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.activity.TestActivity"></activity>
+        <activity android:name="com.example.nam.demobasekotlin.ui.test.activity.TestActivity"></activity>
         <activity android:name=".view.Canvasss"></activity>
     </application>
 

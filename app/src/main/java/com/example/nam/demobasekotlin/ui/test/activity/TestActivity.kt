@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.activity
+package com.example.nam.demobasekotlin.ui.test.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

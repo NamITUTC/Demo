@@ -21,7 +21,7 @@ abstract class BaseFragment : Fragment(),BaseView {
     abstract fun getLayOutRes():Int
     abstract fun initData()
     abstract fun initView()
-    abstract fun getPresenter(): BasePresenter<BaseView>?
+    abstract fun<T:BaseView> getPresenter(): BasePresenter<T>?
 
     protected lateinit var component:ActivityComponent
     protected lateinit var mActivity:BaseActivity

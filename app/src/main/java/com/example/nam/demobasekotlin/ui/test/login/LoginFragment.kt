@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.login
+package com.example.nam.demobasekotlin.ui.test.login
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -11,21 +11,20 @@ import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
 import com.example.nam.demobasekotlin.manager.RealmManager
-import com.example.nam.demobasekotlin.models.Data
 import com.example.nam.demobasekotlin.models.Note
-import com.example.nam.demobasekotlin.ui.login.adapter.NoteAdapter
+import com.example.nam.demobasekotlin.ui.test.login.adapter.NoteAdapter
 import com.example.nam.demobasekotlin.view.Constant
 import com.example.nam.demobasekotlin.view.Router
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_logintest.*
 import javax.inject.Inject
 
 /**
  * Created by nam on 08/12/2017.
  */
 class LoginFragment : BaseFragment(), View.OnClickListener, NoteAdapter.IClick, LoginView {
-    override fun LoadData(data: List<Data>) {
 
-    }
+
+
 
     @Inject
     lateinit var mRouter: Router
@@ -42,7 +41,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener, NoteAdapter.IClick, 
 
     override fun getLayOutRes(): Int {
 
-        return R.layout.fragment_login
+        return R.layout.fragment_logintest
     }
 
     override fun initData() {
@@ -81,9 +80,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener, NoteAdapter.IClick, 
     }
 
 
-    override fun getPresenter(): BasePresenter<BaseView> {
-        return presenter
-    }
+
 
     override fun onClick(view: View?) {
         when (view!!.id) {
@@ -113,5 +110,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener, NoteAdapter.IClick, 
         nodeAdapter.notes = nodes
         nodeAdapter.notifyDataSetChanged()
     }
-
+    override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
+        return presenter as BasePresenter<T>
+    }
 }

@@ -3,7 +3,6 @@ package com.example.nam.demobasekotlin.view
 import android.os.Bundle
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseSubActivity
-import com.example.nam.demobasekotlin.ui.menu.MenuFragment
 import javax.inject.Inject
 
 /**
@@ -22,7 +21,7 @@ class Router {
         var bundle = Bundle()
         bundle.putString(Constant.HELLO, "hello")
         bundle.putString(Constant.HI, "hi")
-        start(MenuFragment::class.java, bundle)
+
     }
 
     private fun start(classOf: Class<*>) {

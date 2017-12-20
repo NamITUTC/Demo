@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.login
+package com.example.nam.demobasekotlin.ui.test.login
 
 import com.example.nam.demobasekotlin.base.BasePresenterImpl
 import com.example.nam.demobasekotlin.base.BaseView
@@ -9,7 +9,7 @@ import javax.inject.Inject
 /**
  * Created by nam on 08/12/2017.
  */
-class LoginPresenterImpl @Inject constructor() : BasePresenterImpl<BaseView>(), LoginPresenter {
+class LoginPresenterImpl @Inject constructor() : BasePresenterImpl<LoginView>(), LoginPresenter {
     override fun deleteNote(idCurrent: Int) {
         NoteDAO.deleteNote(idCurrent)
     }
