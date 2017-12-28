@@ -12,6 +12,7 @@ class MainActivity : BaseActivity() {
         return f*/
         var f = MenuFragment()
         return f
+
     }
 
 
