@@ -17,6 +17,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".base.BaseSubActivity" />
 
@@ -25,8 +26,6 @@
                 <action android:name="MyBroadcast"></action>
             </intent-filter>
         </receiver>
-
-        <activity android:name="com.example.nam.demobasekotlin.ui.test.activity.TestActivity"></activity>
         <activity android:name=".view.Canvasss"></activity>
     </application>
 

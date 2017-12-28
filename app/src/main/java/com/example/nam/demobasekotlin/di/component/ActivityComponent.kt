@@ -6,7 +6,6 @@ import com.example.nam.demobasekotlin.di.module.StorageModule
 import com.example.nam.demobasekotlin.ui.menu.subfragment.Chat.ChatFragment
 import com.example.nam.demobasekotlin.ui.menu.subfragment.search.SearchFragment
 import com.example.nam.demobasekotlin.ui.menu.subfragment.view.ViewFragment
-import com.example.nam.demobasekotlin.ui.test.login.LoginFragment
 import dagger.Subcomponent
 
 /**
@@ -17,9 +16,9 @@ import dagger.Subcomponent
         , RealmModule::class
         , StorageModule::class))
 interface ActivityComponent {
-    fun inject(loginFragment: LoginFragment)
+
     fun inject(loginFragment: com.example.nam.demobasekotlin.ui.login2.LoginFragment)
-    fun inject(menuFragmenttes: com.example.nam.demobasekotlin.ui.test.menu.MenuFragment)
+
     fun inject(chatFragment: ChatFragment)
     fun inject(menuFragment: com.example.nam.demobasekotlin.ui.menu.MenuFragment)
     fun inject(viewFragment: ViewFragment)

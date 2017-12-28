@@ -4,13 +4,14 @@ import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import javax.inject.Inject
 
 /**
  * Created by nam on 20/12/2017.
  */
 class ViewFragment : BaseFragment() {
-
-    lateinit var presenter:ViewPresenter
+    @Inject
+    lateinit var presenter: ViewPresenter
     override fun injectDependence() {
         component.inject(this)
     }

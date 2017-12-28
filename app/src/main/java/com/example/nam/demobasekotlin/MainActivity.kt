@@ -2,7 +2,6 @@ package com.example.nam.demobasekotlin
 
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseFragment
-import com.example.nam.demobasekotlin.ui.login2.LoginFragment
 import com.example.nam.demobasekotlin.ui.menu.MenuFragment
 
 
@@ -11,10 +10,9 @@ class MainActivity : BaseActivity() {
 /*
     var f= LoginFragment()
         return f*/
-        var f=MenuFragment()
+        var f = MenuFragment()
         return f
     }
 
-    lateinit var fragment1: LoginFragment
 
 }
