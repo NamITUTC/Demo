@@ -33,7 +33,7 @@ class BaseSubActivity : BaseActivity() {
 
     override fun initFragment(): BaseFragment? {
         val extras = intent.extras ?: return null
-        val clazz = extras.getSerializable(EXTRA_FRAGMENT_CLASS) as Class<out BaseFragment>
+        val clazz = extras.getSerializable(EXTRA_FRAGMENT_CLASS) as Class<*>
 
         try {
             val c = clazz.getConstructor()

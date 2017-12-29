@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.login2
+package com.example.nam.demobasekotlin.ui.login
 
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment

@@ -9,4 +9,7 @@
     <item
         android:id="@+id/mnu_search"
         android:title="@string/search" />
+    <item
+        android:id="@+id/mnu_chat_boot"
+        android:title="ChatBoot"/>
 </menu>

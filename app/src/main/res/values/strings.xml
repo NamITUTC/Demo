@@ -5,4 +5,13 @@
     <string name="view">view</string>
     <string name="chat">chat</string>
     <string name="search">Search</string>
+    <string name="what_s_on_your_mind">enter your question</string>
+    <string name="workspace_id">6e5faf1a-9eeb-4f4b-9df8-dd5edaaa7711</string> 
+    <string name="conversationUsername">1d82fb20-a16c-49ab-bbec-df261f1d973f</string> 
+    <string name="conversationPassword">Ub3w5oleo1FF</string>  
+
+    <!--Watson Speech-To-Text Service Credentials--> 
+    <string name="STT_username">faee8d6a-43f2-4145-8c8f-170c688dfd51</string> 
+    <string name="STT_password">wH6GN5ZFHoYI</string>
+    <string name="mobileanalytics_apikey">5bc78043-759d-4e52-9355-861b406bdaef</string>  
 </resources>
