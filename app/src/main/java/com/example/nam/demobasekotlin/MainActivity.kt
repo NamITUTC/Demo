@@ -2,7 +2,7 @@ package com.example.nam.demobasekotlin
 
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseFragment
-import com.example.nam.demobasekotlin.ui.menu.MenuFragment
+import com.example.nam.demobasekotlin.ui.menu.subfragment.chatboot.ChatBootFragment
 
 
 class MainActivity : BaseActivity() {
@@ -10,7 +10,7 @@ class MainActivity : BaseActivity() {
 /*
     var f= LoginFragment()
         return f*/
-        var f = MenuFragment()
+        var f = ChatBootFragment()
         return f
 
     }
