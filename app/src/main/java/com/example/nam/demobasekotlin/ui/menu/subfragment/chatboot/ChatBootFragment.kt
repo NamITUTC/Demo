@@ -72,8 +72,8 @@ class ChatBootFragment : BaseFragment() {
 
     override fun initView() {
 
-        conversationUsername = this.getString(R.string.conversation_username)
-        conversationPassword = this.getString(R.string.conversation_password)
+        conversationUsername = this.getString(R.string.conversationUsername)
+        conversationPassword = this.getString(R.string.conversationPassword)
         workspace_id = this.getString(R.string.workspace_id)
         STT_username = this.getString(R.string.STT_username)
         STT_password = this.getString(R.string.STT_password)
@@ -147,7 +147,7 @@ class ChatBootFragment : BaseFragment() {
 
 
         fun showError(e: Exception) {
-            activity.runOnUiThread({
+            activity!!.runOnUiThread({
                 Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
                 e.printStackTrace()
             })
@@ -199,12 +199,12 @@ class ChatBootFragment : BaseFragment() {
                                 service.createDialogNode(createDialogNodeOptions).enqueue(object : ServiceCallback<DialogNode> {
                                     override fun onResponse(response: DialogNode) {
                                         //dialogUpdateFragment.dismiss()
-                                        activity.runOnUiThread({ progressDialog!!.dismiss() })
+                                        activity!!.runOnUiThread({ progressDialog!!.dismiss() })
                                     }
 
                                     override fun onFailure(e: Exception) {
                                         Log.e("Add Dialog Error: ", e.message)
-                                        activity.runOnUiThread({ progressDialog!!.dismiss() })
+                                        activity!!.runOnUiThread({ progressDialog!!.dismiss() })
                                     }
                                 })
 
@@ -212,7 +212,7 @@ class ChatBootFragment : BaseFragment() {
 
                             override fun onFailure(e: Exception) {
                                 Log.e("Entity Value Error: ", e.message)
-                                activity.runOnUiThread({
+                                activity!!.runOnUiThread({
                                     Toast.makeText(activity, e.message, Toast.LENGTH_SHORT)
                                     progressDialog!!.dismiss()
                                 })
@@ -222,7 +222,7 @@ class ChatBootFragment : BaseFragment() {
 
                     override fun onFailure(e: Exception) {
                         Log.e("Error: ", e.message)
-                        activity.runOnUiThread({
+                        activity!!.runOnUiThread({
                             Toast.makeText(activity, e.message, Toast.LENGTH_SHORT)
                             progressDialog!!.dismiss()
                         })
@@ -231,7 +231,7 @@ class ChatBootFragment : BaseFragment() {
 
             } catch (e: Exception) {
                 e.printStackTrace()
-                activity.runOnUiThread({ progressDialog!!.dismiss() })
+                activity!!.runOnUiThread({ progressDialog!!.dismiss() })
             }
         })
         thread.start()
@@ -288,7 +288,7 @@ class ChatBootFragment : BaseFragment() {
                         messageArrayList!!.add(outMessage)
                     }
 
-                    activity.runOnUiThread({
+                    activity!!.runOnUiThread({
                         mAdapter!!.notifyDataSetChanged()
                         if (mAdapter!!.getItemCount() > 1) {
                             recycler_view!!.getLayoutManager().smoothScrollToPosition(recycler_view,

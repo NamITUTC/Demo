@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bg_bubble_self">#62caa6</color>
     <color name="bg_bubble_watbot">#ecf0f1</color>
+    <color name="white">#fff</color>
+    <color name="blue_light">#039BE5</color>
+    <color name="blue">#0D47A1</color>
+    <color name="orange">#F57C00</color>
+    <color name="green">#00E676</color>
+    <color name="red">#C62828</color>
 </resources>

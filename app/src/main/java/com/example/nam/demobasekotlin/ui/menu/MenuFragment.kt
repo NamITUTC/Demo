@@ -43,18 +43,17 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.mnu_chat ->
-                loadFragment(ChatFragment())
+            R.id.mnu_chat ->loadFragment(ChatFragment())
             R.id.mnu_search -> loadFragment(SearchFragment())
             R.id.mnu_view -> loadFragment(ViewFragment())
             R.id.mnu_chat_boot -> loadFragment(ChatBootFragment())
         }
-        loadFragment(ChatBootFragment())
+//        loadFragment(ChatBootFragment())
         return true
     }
 
     private fun loadFragment(fragment: BaseFragment) {
-        val transaction = fragmentManager.beginTransaction()
+        val transaction = fragmentManager!!.beginTransaction()
         transaction.replace(R.id.container_menu, fragment)
         transaction.addToBackStack(null)
         transaction.commit()

@@ -5,15 +5,22 @@
     android:layout_height="match_parent">
 
 
+
+
+    <FrameLayout
+        android:id="@+id/container_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        android:foreground="?attr/selectableItemBackground"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/naviagtion" />
-
-    <FrameLayout
-        android:id="@+id/container_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">DemoBaseKotlin</string>
-    <string name="login">Login</string>
+    <string name="login">Đăng nhập</string>
     <string name="register">Register</string>
     <string name="view">view</string>
     <string name="chat">chat</string>
@@ -13,5 +13,16 @@
     <!--Watson Speech-To-Text Service Credentials--> 
     <string name="STT_username">faee8d6a-43f2-4145-8c8f-170c688dfd51</string> 
     <string name="STT_password">wH6GN5ZFHoYI</string>
-    <string name="mobileanalytics_apikey">5bc78043-759d-4e52-9355-861b406bdaef</string>  
+    <string name="mobileanalytics_apikey">5bc78043-759d-4e52-9355-861b406bdaef</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>  
+    <string name="facebook_app_id">932528780231040</string>
+    <string name="fb_login_protocol_scheme">fb932528780231040</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="vihealthy">ViHealthy</string>
+    <string name="list_diseases">Danh mục bệnh</string>
+    <string name="traditional_medicine">Bài thuốc đông y</string>
+    <string name="chat_bot">Chat bot</string>
+    <string name="m">Mẹo vặt sức khỏe</string>
+
 </resources>

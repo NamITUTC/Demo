@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "482302171237",
+    "firebase_url": "https://vihealthy-5b806.firebaseio.com",
+    "project_id": "vihealthy-5b806",
+    "storage_bucket": "vihealthy-5b806.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482302171237:android:f4ca4fd78c4ca704",
+        "android_client_info": {
+          "package_name": "com.example.nam.demobasekotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482302171237-tv2s1qr2ti8skcbm1ilr34j96g48d4dd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nam.demobasekotlin",
+            "certificate_hash": "1a2067cad8c18bac04341ef2c892e0904b556675"
+          }
+        },
+        {
+          "client_id": "482302171237-0tsq39il5rm4pt902kvkn41cceoii84p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVId5wXwbvnh0yRhP0cizirJJ_-pyRa_Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482302171237-0tsq39il5rm4pt902kvkn41cceoii84p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

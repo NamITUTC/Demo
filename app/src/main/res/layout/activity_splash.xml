@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg_splash_screen"
+    tools:context="com.example.nam.demobasekotlin.ui.login.SplashActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen30dp"
+        android:gravity="center"
+        android:text="ViHealthy"
+        android:textSize="@dimen/dimen40dp"
+        android:layout_above="@+id/img_dr"
+        android:textColor="@color/bg_bubble_self"/>
+
+    <ImageView
+        android:id="@+id/img_dr"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="@dimen/dimen200dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_splashh_screen" />
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:indicatorColor="@color/bg_bubble_self"
+        />
+
+</RelativeLayout>

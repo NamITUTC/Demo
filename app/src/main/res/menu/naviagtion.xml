@@ -14,5 +14,6 @@
         android:title="@string/search" />
     <item
         android:id="@+id/mnu_chat_boot"
-        android:title="ChatBoot"/>
+         android:icon="@drawable/ic_chat"
+        android:title="bot"/>
 </menu>

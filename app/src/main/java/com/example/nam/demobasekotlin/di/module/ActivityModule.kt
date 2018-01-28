@@ -3,6 +3,8 @@ package com.example.nam.demobasekotlin.di.module
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.ui.login.LoginPresenter
 import com.example.nam.demobasekotlin.ui.login.LoginPresenterImpl
+import com.example.nam.demobasekotlin.ui.map.MapPresenter
+import com.example.nam.demobasekotlin.ui.map.MapPresenterImpl
 import com.example.nam.demobasekotlin.ui.menu.MenuPresenter
 import com.example.nam.demobasekotlin.ui.menu.MenuPresenterImpl
 import com.example.nam.demobasekotlin.ui.menu.subfragment.Chat.ChatPresenter
@@ -59,8 +61,14 @@ class ActivityModule(activity: BaseActivity) {
     fun bindLogin(presenter: LoginPresenterImpl): LoginPresenter {
         return presenter
     }
+
     @Provides
-    fun bindChatBoot(presenter:ChatBootPresenterImpl):ChatBootPresenter{
+    fun bindChatBoot(presenter: ChatBootPresenterImpl): ChatBootPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindMapPresenter(presenter: MapPresenterImpl): MapPresenter {
         return presenter
     }
 }

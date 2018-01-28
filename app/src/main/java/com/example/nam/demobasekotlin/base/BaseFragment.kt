@@ -4,6 +4,7 @@ package com.example.nam.demobasekotlin.base
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,14 +39,14 @@ abstract class BaseFragment : Fragment(),BaseView {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         mRootView= inflater!!.inflate(getLayOutRes(),container,false)
         unbinder=ButterKnife.bind(this,mRootView)
         return mRootView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mPresenter=getPresenter()
         mPresenter!!.onAttachView(this)
@@ -61,7 +62,7 @@ abstract class BaseFragment : Fragment(),BaseView {
     }
 
     override fun addFragment(fragment: BaseFragment) {
-        var frm : android.support.v4.app.FragmentManager? =fragmentManager
+        var frm : FragmentManager? =fragmentManager
 
          frm!!.beginTransaction().add(getLayOutRes(),fragment)
                 .addToBackStack(fragment.javaClass.simpleName)

@@ -2,6 +2,7 @@ package com.example.nam.demobasekotlin.ui.menu.subfragment.chatboot.dialog
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.text.TextUtils
@@ -34,7 +35,7 @@ class DialogUpdateFragment() : DialogFragment() {
         this.callBack = callBack
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootview = inflater!!.inflate(R.layout.dialog_trainning, container, false)
         dialog.setTitle("Update")
         btnOk = rootview.findViewById(R.id.btn_ok)
@@ -55,4 +56,6 @@ class DialogUpdateFragment() : DialogFragment() {
     fun getAnswer(): String {
         return editText.text.toString()
     }
+
+
 }
