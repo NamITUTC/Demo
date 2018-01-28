@@ -10,6 +10,7 @@ class MainActivity : BaseActivity() {
     override fun initFragment(): BaseFragment {
     var f= LoginFragment()
         return f
+
      /*   val f = MenuFragment()
         return f
 */
