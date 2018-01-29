@@ -7,8 +7,6 @@ import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
-import com.example.nam.demobasekotlin.ui.map.MapsActivity
-import com.example.nam.demobasekotlin.ui.menu.MenuFragment
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -17,7 +15,6 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
 
 

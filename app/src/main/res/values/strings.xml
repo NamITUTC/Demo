@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DemoBaseKotlin</string>
+    <string name="app_name">ViHealthy</string>
     <string name="login">Đăng nhập</string>
     <string name="register">Register</string>
     <string name="view">view</string>
@@ -23,6 +23,7 @@
     <string name="list_diseases">Danh mục bệnh</string>
     <string name="traditional_medicine">Bài thuốc đông y</string>
     <string name="chat_bot">Chat bot</string>
-    <string name="m">Mẹo vặt sức khỏe</string>
+    <string name="health_tips">Mẹo vặt sức khỏe</string>
+    <string name="map">Map</string>
 
 </resources>

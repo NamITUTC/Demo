@@ -3,18 +3,18 @@ package com.example.nam.demobasekotlin.di.module
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.ui.login.LoginPresenter
 import com.example.nam.demobasekotlin.ui.login.LoginPresenterImpl
-import com.example.nam.demobasekotlin.ui.map.MapPresenter
-import com.example.nam.demobasekotlin.ui.map.MapPresenterImpl
-import com.example.nam.demobasekotlin.ui.menu.MenuPresenter
-import com.example.nam.demobasekotlin.ui.menu.MenuPresenterImpl
-import com.example.nam.demobasekotlin.ui.menu.subfragment.Chat.ChatPresenter
-import com.example.nam.demobasekotlin.ui.menu.subfragment.Chat.ChatPresenterImpl
-import com.example.nam.demobasekotlin.ui.menu.subfragment.chatboot.ChatBootPresenter
-import com.example.nam.demobasekotlin.ui.menu.subfragment.chatboot.ChatBootPresenterImpl
-import com.example.nam.demobasekotlin.ui.menu.subfragment.search.SearchPresenter
-import com.example.nam.demobasekotlin.ui.menu.subfragment.search.SearchPresenterImpl
-import com.example.nam.demobasekotlin.ui.menu.subfragment.view.ViewPresenter
-import com.example.nam.demobasekotlin.ui.menu.subfragment.view.ViewPresenterImpl
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.map.MapPresenter
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.map.MapPresenterImpl
+import com.example.nam.demobasekotlin.ui.menufind.MenuPresenter
+import com.example.nam.demobasekotlin.ui.menufind.MenuPresenterImpl
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatPresenter
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatPresenterImpl
+import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenter
+import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.MainPresenter
+import com.example.nam.demobasekotlin.ui.main.MainPresenterImpl
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewPresenter
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewPresenterImpl
 import dagger.Module
 import dagger.Provides
 
@@ -48,7 +48,7 @@ class ActivityModule(activity: BaseActivity) {
     }
 
     @Provides
-    fun bindSearchPresenter(presenter: SearchPresenterImpl): SearchPresenter {
+    fun bindSearchPresenter(presenter: MainPresenterImpl): MainPresenter {
         return presenter
     }
 

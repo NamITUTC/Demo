@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:icon="@drawable/ic_search"
+        android:id="@+id/mnu_search"
+        android:title="@string/map" />
+    <item
         android:icon="@drawable/ic_chat"
         android:id="@+id/mnu_chat"
         android:title="@string/chat" />
@@ -8,12 +12,4 @@
         android:icon="@drawable/ic_view"
         android:id="@+id/mnu_view"
         android:title="@string/view" />
-    <item
-        android:icon="@drawable/ic_search"
-        android:id="@+id/mnu_search"
-        android:title="@string/search" />
-    <item
-        android:id="@+id/mnu_chat_boot"
-         android:icon="@drawable/ic_chat"
-        android:title="bot"/>
 </menu>
