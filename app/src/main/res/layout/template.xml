@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    >
+
+   <!-- <android.support.design.widget.AppBarLayout
+        n1:id="@id/appbar"
+        n1:layout_width="fill_parent"
+        n1:layout_height="300.0dip"
+        n1:fitsSystemWindows="true"
+        n1:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout xmlns:n2="http://schemas.android.com/apk/res-auto"
+            n1:layout_width="fill_parent"
+            n1:layout_height="300.0dip"
+            n1:fitsSystemWindows="true"
+            n2:contentScrim="?colorPrimary"
+            n2:expandedTitleTextAppearance="@android:color/transparent"
+            n2:layout_scrollFlags="exitUntilCollapsed|scroll|snap">
+
+            <ImageView
+                n1:id="@id/header"
+                n1:layout_width="fill_parent"
+                n1:layout_height="fill_parent"
+                n1:background="@drawable/ic_bg_dmbb"
+                n1:fitsSystemWindows="true"
+                n1:scaleType="centerCrop"
+                n2:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                n1:id="@id/tb_dong_y"
+                n1:layout_width="fill_parent"
+                n1:layout_height="?actionBarSize"
+                n2:layout_collapseMode="pin"
+                n2:popupTheme="@style/ThemeOverlay.AppCompat" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.SearchView xmlns:n3="http://schemas.android.com/apk/res-auto"
+        n1:id="@id/sv_dong_y_chua_benh"
+        n1:layout_width="fill_parent"
+        n1:layout_height="50.0dip"
+        n1:layout_marginLeft="10.0dip"
+        n1:layout_marginRight="10.0dip"
+        n1:layout_marginTop="10.0dip"
+        n1:background="@drawable/ic_bg_search_view"
+        n3:layout_behavior="@string/appbar_scrolling_view_behavior"
+        n3:queryHint="Nhập tên bệnh..." />
+
+    <android.support.v7.widget.RecyclerView xmlns:n4="http://schemas.android.com/apk/res-auto"
+        n1:id="@id/rcl_dong_y_chua_benh"
+        n1:layout_width="match_parent"
+        n1:layout_height="match_parent"
+        n1:layout_below="@id/sv_dong_y_chua_benh"
+        n1:layout_marginTop="55.0dip"
+        n1:clickable="true"
+        n1:padding="10.0dip"
+        n4:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+</android.support.design.widget.CoordinatorLayout>

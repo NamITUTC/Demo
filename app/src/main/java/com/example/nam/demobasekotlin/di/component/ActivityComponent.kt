@@ -9,7 +9,9 @@ import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatFragment
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
 import com.example.nam.demobasekotlin.ui.main.MainFragment
-import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewFragment
+import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
+import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
 import dagger.Subcomponent
 
 /**
@@ -24,9 +26,11 @@ interface ActivityComponent {
     fun inject(loginFragment: LoginFragment)
     fun inject(chatFragment: ChatFragment)
     fun inject(menuFragment: MenuFragment)
-    fun inject(viewFragment: ViewFragment)
+    fun inject(viewFragment: PlaceFragment)
     fun inject(searchFragment: MainFragment)
     fun inject(chatBootFragment: ChatBootFragment)
     fun inject(mapFragment: MapFragment)
+    fun inject(pathologicalFragment: PathologicalFragment)
+    fun inject(healthTipsFragment: HealthTipsFragment)
 
 }

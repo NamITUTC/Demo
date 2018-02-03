@@ -1,4 +1,4 @@
-package com.example.nam.demobasekotlin.ui.menufind.subfragment.view
+package com.example.nam.demobasekotlin.ui.menufind.subfragment.place
 
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
@@ -9,9 +9,9 @@ import javax.inject.Inject
 /**
  * Created by nam on 20/12/2017.
  */
-class ViewFragment : BaseFragment() {
+class PlaceFragment : BaseFragment() {
     @Inject
-    lateinit var presenter: ViewPresenter
+    lateinit var presenter: PlacePresenter
     override fun injectDependence() {
         component.inject(this)
     }

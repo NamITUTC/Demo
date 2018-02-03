@@ -5,5 +5,7 @@ import com.example.nam.demobasekotlin.base.BaseView
 /**
  * Created by ThanhNam on 1/7/2018.
  */
-interface MapView :BaseView {
+interface MapsView :BaseView {
+    fun onFail(toString: String)
+    fun onSuccess(toString: String)
 }

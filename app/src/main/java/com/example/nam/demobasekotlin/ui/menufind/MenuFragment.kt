@@ -9,7 +9,7 @@ import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.map.MapFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatFragment
-import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewFragment
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
 import kotlinx.android.synthetic.main.fragment_menu.*
 import javax.inject.Inject
 
@@ -35,6 +35,7 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
 
     override fun initView() {
         bottom_navigation.setOnNavigationItemSelectedListener(this)
+        loadFragment(MapFragment())
     }
 
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
@@ -45,7 +46,7 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
         when (item.itemId) {
             R.id.mnu_chat -> loadFragment(ChatFragment())
             R.id.mnu_search -> loadFragment(MapFragment())
-            R.id.mnu_view -> loadFragment(ViewFragment())
+            R.id.mnu_view -> loadFragment(PlaceFragment())
         }
         return true
     }

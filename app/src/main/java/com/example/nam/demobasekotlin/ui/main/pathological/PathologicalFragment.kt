@@ -4,13 +4,17 @@ import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import javax.inject.Inject
 
 /**
  * Created by ThanhNam on 1/29/2018.
  */
 class PathologicalFragment : BaseFragment() {
-    override fun injectDependence() {
 
+    @Inject
+    lateinit var presenter:PathologicalPresenter
+    override fun injectDependence() {
+        component.inject(this)
     }
 
     override fun getLayOutRes(): Int {
@@ -26,6 +30,6 @@ class PathologicalFragment : BaseFragment() {
     }
 
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return presenter as BasePresenter<T>
     }
 }

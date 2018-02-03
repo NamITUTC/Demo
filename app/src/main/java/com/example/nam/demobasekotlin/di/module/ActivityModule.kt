@@ -13,8 +13,12 @@ import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenter
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.MainPresenter
 import com.example.nam.demobasekotlin.ui.main.MainPresenterImpl
-import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewPresenter
-import com.example.nam.demobasekotlin.ui.menufind.subfragment.view.ViewPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsPresenter
+import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenter
+import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenterImpl
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenter
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenterImpl
 import dagger.Module
 import dagger.Provides
 
@@ -53,7 +57,7 @@ class ActivityModule(activity: BaseActivity) {
     }
 
     @Provides
-    fun bindViewPresenter(presenter: ViewPresenterImpl): ViewPresenter {
+    fun bindViewPresenter(presenter: PlacePresenterImpl): PlacePresenter {
         return presenter
     }
 
@@ -69,6 +73,16 @@ class ActivityModule(activity: BaseActivity) {
 
     @Provides
     fun bindMapPresenter(presenter: MapPresenterImpl): MapPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindHealthTipsPresenter(presenter: HealthTipsPresenterImpl): HealthTipsPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindPathologicalPresenter(presenter: PathologicalPresenterImpl): PathologicalPresenter {
         return presenter
     }
 }
