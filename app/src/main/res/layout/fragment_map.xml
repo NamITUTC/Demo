@@ -4,11 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
+    <ImageView
         android:id="@+id/btn_call"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100sp"
         android:text="Call" />
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rt_start"
+        android:numStars="5"
+        android:stepSize=".5"/>
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"

@@ -14,13 +14,15 @@ import io.realm.rx.RealmObservableFactory
 /**
  * Created by nam on 08/12/2017.
  */
-class App : Application(){
+class App : Application() {
 
-    private lateinit var currentActivity :BaseActivity
+    private lateinit var currentActivity: BaseActivity
     private lateinit var component: AppComponent
-    private lateinit var realm:Realm
+    private lateinit var realm: Realm
+     var currentPosition: String = ""
+
     companion object {
-        private lateinit var instance : App
+        private lateinit var instance: App
         fun get(): App {
             return instance
         }
@@ -28,9 +30,9 @@ class App : Application(){
 
     override fun onCreate() {
         super.onCreate()
-        instance=this
-        component=DaggerAppComponent.builder()
-                .applicationModule( ApplicationModule(this)).build()
+        instance = this
+        component = DaggerAppComponent.builder()
+                .applicationModule(ApplicationModule(this)).build()
         initRealmConfiguration()
     }
 
@@ -41,7 +43,7 @@ class App : Application(){
                 .deleteRealmIfMigrationNeeded()
                 .build()
         Realm.setDefaultConfiguration(realmConfiguration)
-        realm= Realm.getInstance(realmConfiguration)
+        realm = Realm.getInstance(realmConfiguration)
     }
 
     fun getCurrentActivity(): BaseActivity {

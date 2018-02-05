@@ -4,12 +4,11 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 
-
 /**
- * Created by ThanhNam on 1/7/2018.
+ * Created by ThanhNam on 2/4/2018.
  */
-data class Geometry (
-    @SerializedName("location")
-    @Expose
-     var location: Location? = null
+data class OverviewPolyline(
+        @SerializedName("points")
+        @Expose
+        val points: String? = null
 )

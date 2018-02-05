@@ -10,12 +10,14 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.util.Log
-import android.view.View
+import com.example.nam.demobasekotlin.App
 import com.example.nam.demobasekotlin.R
-import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import com.example.nam.demobasekotlin.common.Constant
+import com.example.nam.demobasekotlin.common.Router
+import com.example.nam.demobasekotlin.models.map.Example
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
@@ -30,29 +32,25 @@ import javax.inject.Inject
  * Created by ThanhNam on 1/7/2018.
  */
 class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
-
-
-    override fun onFail(toString: String) {
-        ToastUltil.show(this.activity!!, toString)
-        Log.e("onFailure", toString)
-    }
-
-    override fun onSuccess(response: String) {
-        Log.e("onResponse", response)
-    }
-
     @Inject
     lateinit var presenter: MapPresenter
+    @Inject
+    lateinit var mRouter:Router
     private lateinit var mMap: GoogleMap
     lateinit var mMapView: MapView
     lateinit var mLocationManager: LocationManager
-    val LOCATION_UPDATE_MIN_DISTANCE: Float = 10f
-    val LOCATION_UPDATE_MIN_TIME: Long = 5000
+    private val LOCATION_UPDATE_MIN_DISTANCE: Float = 10f
+    private val LOCATION_UPDATE_MIN_TIME: Long = 5000
+    private lateinit var currentLocation: Location
+    private val MAP: Int = 1
     private val mLocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location?) {
             if (location != null) {
                 // Logger.d(String.format("%f, %f", location.latitude, location.longitude))
                 drawMarker(location)
+                currentLocation=location
+                var location = "${currentLocation.latitude},${currentLocation.longitude}"
+                App.get().currentPosition=location
                 mLocationManager.removeUpdates(this)
             } else {
                 // Logger.d("Location is null")
@@ -72,16 +70,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
         }
     }
 
-    private fun drawMarker(location: Location) {
-        if (mMap != null) {
-            mMap.clear()
-            val gps: LatLng = LatLng(location.latitude, location.longitude)
-            mMap.addMarker(MarkerOptions().position(gps).title("current possion"))
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(gps, 13f))
-
-        }
-    }
-
     override fun injectDependence() {
         component.inject(this)
     }
@@ -91,23 +79,19 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
     }
 
     override fun initData() {
-        presenter.callApi()
+
     }
 
-    private val MAP: Int = 1
 
     override fun initView() {
-
         mMapView = mRootView.findViewById(R.id.map)
         mMapView.onCreate(null)
-        // mMapView.getMapAsync(this)
         mMapView.onResume()
         mMapView.getMapAsync { map -> mMap = map }
         if (ContextCompat.checkSelfPermission(this.activity!!, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MAP)
         }
         mLocationManager = activity!!.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-//
     }
 
     @SuppressLint("MissingPermission")
@@ -133,6 +117,10 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
         if (location != null) {
             //Logger.d(String.format("getCurrentLocation(%f, %f)", location.latitude, location.longitude))
             drawMarker(location)
+            currentLocation = location
+            var location = "${currentLocation.latitude},${currentLocation.longitude}"
+            App.get().currentPosition=location
+            presenter.callApi(location)
         }
     }
 
@@ -168,6 +156,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             if (doesUserHavePermission()) {
                 mMap.setMyLocationEnabled(true)
                 getCurrentLocation()
+
             }
 
 
@@ -184,5 +173,35 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
     private fun doesUserHavePermission(): Boolean {
         val result = context!!.checkCallingOrSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         return result == PackageManager.PERMISSION_GRANTED
+    }
+
+    override fun onFail(toString: String) {
+        Log.e("onFailure", toString)
+    }
+
+    override fun onSuccess(response: Example) {
+        for (i in 0 until response.results!!.size) {
+            Log.e("lat", response.results!!.get(i).geometry!!.location!!.lat.toString())
+            Log.e("lng", response.results!!.get(i).geometry!!.location!!.lng.toString())
+            addMarker(response.results!!.get(i).geometry!!.location!!, response.results!!.get(i).name)
+        }
+
+    }
+
+    private fun drawMarker(location: Location) {
+        if (mMap != null) {
+            mMap.clear()
+            val gps = LatLng(location.latitude, location.longitude)
+            mMap.addMarker(MarkerOptions().position(gps).title("current possion"))
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(gps, 13f))
+
+
+        }
+    }
+
+    private fun addMarker(location: com.example.nam.demobasekotlin.models.map.Location, name: String?) {
+        val gps = LatLng(location.lat!!, location.lng!!)
+        mMap.addMarker(MarkerOptions().position(gps).title(name))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(gps, 13f))
     }
 }

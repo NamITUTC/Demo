@@ -5,13 +5,13 @@ import com.google.gson.annotations.SerializedName
 
 
 /**
- * Created by ThanhNam on 1/7/2018.
+ * Created by ThanhNam on 2/4/2018.
  */
-data class Location(
-        @SerializedName("lat")
+class Duration(
+        @SerializedName("text")
         @Expose
-         var lat: Double? = null,
-        @SerializedName("lng")
+        val text: String? = null,
+        @SerializedName("value")
         @Expose
-         var lng: Double? = null
+        val value: Int? = null
 )
