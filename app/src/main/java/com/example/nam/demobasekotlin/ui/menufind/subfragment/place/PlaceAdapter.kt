@@ -39,7 +39,7 @@ class PlaceAdapter(var places: List<Place>, var context: Context, var iClick: IC
             itemView.txt_distance.text = place.distance
             itemView.txt_time.text = place.time
             itemView.txt_name_clinic.text = place.name
-            itemView.rt_rate.rating = place.rate
+            itemView.rt_rate.rating = place.rate!!
             val link = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${place.image}&key=AIzaSyAjCxDFbqC9uy11X5SKpmLzVqFXy6KKJP4"
             Glide.with(context).load(link).into(itemView.img_ava)
         }

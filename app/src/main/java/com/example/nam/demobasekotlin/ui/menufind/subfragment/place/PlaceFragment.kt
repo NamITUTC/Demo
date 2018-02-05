@@ -1,10 +1,11 @@
 package com.example.nam.demobasekotlin.ui.menufind.subfragment.place
 
+import android.app.ProgressDialog
+import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.example.nam.demobasekotlin.App
 import com.example.nam.demobasekotlin.R
-import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
@@ -28,8 +29,9 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     lateinit var places2: MutableList<Place>
     lateinit var places: MutableList<Place>
     lateinit var tempLocation: MutableList<String>
+    var d=0;
     var count = 0
-
+     lateinit var p :ProgressDialog
     override fun injectDependence() {
         component.inject(this)
     }
@@ -39,16 +41,21 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     }
 
     override fun initData() {
-        presenter.getAllPlace(App.get().currentPosition)
-        ToastUltil.show(activity!!, App.get().currentPosition)
-    }
-
-    override fun initView() {
-
         places = mutableListOf()
         places1 = mutableListOf()
         places2 = mutableListOf()
         tempLocation = mutableListOf()
+        presenter.getAllPlace(App.get().currentPosition)
+    }
+
+    override fun initView() {
+       /* p=ProgressDialog(activity!!)
+        var handler = Handler()
+        handler.postDelayed({
+
+            p.show()
+        },2000)*/
+
         placeAdapter = PlaceAdapter(places, activity!!, this)
         rc_places.apply {
             adapter = placeAdapter
@@ -65,18 +72,24 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     }
 
     override fun OnSuccess(route: Derection) {
+
         for (i in 0 until route!!.routes!!.get(0).legs!!.size) {
             val leg = route!!.routes!!.get(0).legs!!.get(i)
             places2.add(Place("", "", "", 0f, leg.distance!!.text, leg.duration!!.text!!, ""))
         }
-        if(places2.size==count){
-            for (i in 0 until count){
-                places.add(Place(places1[i].image,places1[i].name,places1[i].address,
-                        places1[i].rate,places2[i].distance,places2[i].time,places2[i].poliline))
+        if (places2.size == count) {
+            d++
+            for (i in 0 until count) {
+                places.add(Place(places1[i].image, places1[i].name, places1[i].address,
+                        places1[i].rate, places2[i].distance, places2[i].time, places2[i].poliline))
                 placeAdapter.notifyDataSetChanged()
             }
             //
         }
+        /*if(d==count){
+            p.dismiss()
+        }*/
+
         //    ToastUltil.show(activity!!,"ok")
     }
 
@@ -87,18 +100,32 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     override fun getAllPlaceSuccess(result: Example) {
 
         for (i in 0 until result.results!!.size) {
-            val endLocation = "${result.results[i].geometry!!.location!!.lng},${result.results[i].geometry!!.location!!.lat}"
+            val endLocation = "${result.results[i].geometry!!.location!!.lat},${result.results[i].geometry!!.location!!.lng}"
             tempLocation.add(endLocation)
-            val place = Place(result.results[i].photos!![0].photoReference!!,
-                    result.results[i].name!!,
-                    result.results[i].vicinity!!,
-                    result.results[i].rating!!.toFloat(),
-                    "", "", "")
+            var s = ""
+            var rate: Float = 0f
+            var name = ""
+            var address = ""
+            if (result.results[i].photos != null) {
+                if (result.results[i].photos!!.get(0)?.photoReference != null) {
+                    s = result.results[i].photos?.get(0)?.photoReference!!
+                }
+            }
+            if (result.results[i].rating != null) {
+                rate = result.results[i].rating!!.toFloat()
+            }
+            if (result.results[i].name != null) {
+                name = result.results[i].name!!
+            }
+            if (result.results[i].vicinity != null) {
+                address = result.results[i].vicinity!!
+            }
+            val place = Place(s, name, address, rate, "", "", "")
             places1.add(place)
             count++
 
         }
-        Log.d("count",count.toString())
+        Log.d("count", count.toString())
         if (tempLocation.size == result.results.size) {
             for (endLocation in tempLocation)
                 presenter.getDistance(App.get().currentPosition, endLocation)

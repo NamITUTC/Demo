@@ -48,9 +48,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             if (location != null) {
                 // Logger.d(String.format("%f, %f", location.latitude, location.longitude))
                 drawMarker(location)
-                currentLocation=location
+                currentLocation = location
                 var location = "${currentLocation.latitude},${currentLocation.longitude}"
                 App.get().currentPosition=location
+                presenter.callApi(location)
+               // mRouter.sendToPlaceFragment("Nam Thanh")
                 mLocationManager.removeUpdates(this)
             } else {
                 // Logger.d("Location is null")
@@ -84,10 +86,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
 
 
     override fun initView() {
+
+
         mMapView = mRootView.findViewById(R.id.map)
         mMapView.onCreate(null)
         mMapView.onResume()
-        mMapView.getMapAsync { map -> mMap = map }
+        mMapView.getMapAsync { map -> mMap = map
+            mMap.uiSettings.isMyLocationButtonEnabled = true
+            mMap.uiSettings.setAllGesturesEnabled(true)}
         if (ContextCompat.checkSelfPermission(this.activity!!, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MAP)
         }
@@ -121,6 +127,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             var location = "${currentLocation.latitude},${currentLocation.longitude}"
             App.get().currentPosition=location
             presenter.callApi(location)
+            mRouter.sendToPlaceFragment("Nam Thanh")
         }
     }
 
@@ -156,7 +163,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             if (doesUserHavePermission()) {
                 mMap.setMyLocationEnabled(true)
                 getCurrentLocation()
-
+              //  mMap.uiSettings.isMyLocationButtonEnabled = true
+                //mMap.uiSettings.setAllGesturesEnabled(true)
             }
 
 
