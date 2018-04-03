@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'realm-android'
 apply plugin: 'kotlin-kapt'
+project.ext.ASSET_DIR = projectDir.toString() + '/assets'
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -26,6 +27,7 @@ android {
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
+
 }
 ext.VERSION_RX_JAVA = "2.0.6"
 ext.VERSION_RX_ANDROID = "2.0.1"
@@ -73,9 +75,6 @@ dependencies {
     implementation 'com.ibm.watson.developer_cloud:android-sdk:0.4.2'
     implementation 'com.ibm.mobilefirstplatform.clientsdk.android:analytics:1.1.0'
 
-    //mutidex
-    /*
-   compile 'com.android.support:   multidex:1.0.2'*/
 
     //firebase
     implementation 'com.google.firebase:firebase-auth:11.8.0'
@@ -88,6 +87,7 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
 
 }
 

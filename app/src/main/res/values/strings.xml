@@ -25,5 +25,8 @@
     <string name="chat_bot">Chat bot</string>
     <string name="health_tips">Mẹo vặt sức khỏe</string>
     <string name="map">Map</string>
+    <string name="place">Địa chỉ tin cậy</string>
+    <string name="detect">Nhận diện thuốc</string>
+    <string name="camera_error">This device doesn\\\'t support Camera2 API.</string>
 
 </resources>

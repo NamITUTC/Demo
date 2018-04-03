@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.nam.demobasekotlin.R
 import com.ominext.namnt.demorequestapiapplication.model.HealthTip
+import kotlinx.android.synthetic.main.item_tip.view.*
 
 
 /**
@@ -34,9 +36,9 @@ class HealthTipAdapter(var tips: MutableList<HealthTip>, var iClick: IClick, var
 
     class TipViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
         fun bind(healthTip: HealthTip, iClick: IClick, context: Context) {
-            // itemView.txt_title.text = healthTip.title
-            //  itemView.txt_content.text = healthTip.content
-            // Glide.with(context).load(healthTip.image).into(itemView.img_ava)
+            itemView.txt_title_tip.text = healthTip.title
+            itemView.txt_content_tip.text = healthTip.content
+            Glide.with(context).load(healthTip.image).into(itemView.img_ava_tip)
         }
     }
 }

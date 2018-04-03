@@ -5,4 +5,5 @@ package com.example.nam.demobasekotlin.base
  */
 interface BaseView {
      fun addFragment(fragment: BaseFragment)
+
 }

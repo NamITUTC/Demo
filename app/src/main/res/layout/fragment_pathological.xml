@@ -20,10 +20,10 @@
                 android:src="@drawable/ic_bg_dmbb" />
 
             <android.support.v7.widget.Toolbar
+                android:id="@+id/bar"
                 style="@style/ThemeOverlay.AppCompat.Light"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                android:id="@+id/bar"></android.support.v7.widget.Toolbar>
+                android:layout_height="?actionBarSize" />
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -36,13 +36,13 @@
         <android.support.v7.widget.SearchView
             android:id="@+id/sv_search"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></android.support.v7.widget.SearchView>
+            android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
-            android:layout_below="@id/sv_search"
             android:id="@+id/rc_pathological"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:layout_below="@id/sv_search" />
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

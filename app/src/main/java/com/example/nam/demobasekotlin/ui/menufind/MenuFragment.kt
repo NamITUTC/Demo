@@ -35,7 +35,7 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
 
     override fun initView() {
         bottom_navigation.setOnNavigationItemSelectedListener(this)
-        loadFragment(MapFragment())
+      //  loadFragment(MapFragment())
     }
 
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {

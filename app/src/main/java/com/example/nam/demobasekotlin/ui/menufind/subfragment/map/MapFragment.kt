@@ -35,7 +35,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
     @Inject
     lateinit var presenter: MapPresenter
     @Inject
-    lateinit var mRouter:Router
+    lateinit var mRouter: Router
     private lateinit var mMap: GoogleMap
     lateinit var mMapView: MapView
     lateinit var mLocationManager: LocationManager
@@ -50,9 +50,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
                 drawMarker(location)
                 currentLocation = location
                 var location = "${currentLocation.latitude},${currentLocation.longitude}"
-                App.get().currentPosition=location
+                App.get().currentPosition = location
                 presenter.callApi(location)
-               // mRouter.sendToPlaceFragment("Nam Thanh")
+                // mRouter.sendToPlaceFragment("Nam Thanh")
                 mLocationManager.removeUpdates(this)
             } else {
                 // Logger.d("Location is null")
@@ -86,14 +86,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
 
 
     override fun initView() {
-
-
         mMapView = mRootView.findViewById(R.id.map)
         mMapView.onCreate(null)
         mMapView.onResume()
-        mMapView.getMapAsync { map -> mMap = map
+        mMapView.getMapAsync { map ->
+            mMap = map
             mMap.uiSettings.isMyLocationButtonEnabled = true
-            mMap.uiSettings.setAllGesturesEnabled(true)}
+            mMap.uiSettings.setAllGesturesEnabled(true)
+        }
         if (ContextCompat.checkSelfPermission(this.activity!!, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MAP)
         }
@@ -125,7 +125,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             drawMarker(location)
             currentLocation = location
             var location = "${currentLocation.latitude},${currentLocation.longitude}"
-            App.get().currentPosition=location
+            App.get().currentPosition = location
             presenter.callApi(location)
             mRouter.sendToPlaceFragment("Nam Thanh")
         }
@@ -163,7 +163,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback, MapsView {
             if (doesUserHavePermission()) {
                 mMap.setMyLocationEnabled(true)
                 getCurrentLocation()
-              //  mMap.uiSettings.isMyLocationButtonEnabled = true
+                //  mMap.uiSettings.isMyLocationButtonEnabled = true
                 //mMap.uiSettings.setAllGesturesEnabled(true)
             }
 

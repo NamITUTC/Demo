@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiClient {
     companion object {
         private var retrofit: Retrofit? = null
-        private val BASE_URL: String = "https://maps.googleapis.com/"
+        private val BASE_URL: String = "http://192.168.0.114:9069/"
 
         fun getInstance(): Retrofit? {
             return if (retrofit == null) {

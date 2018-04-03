@@ -3,6 +3,11 @@ package com.example.nam.demobasekotlin.common
 import android.os.Bundle
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseSubActivity
+import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
+
+import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
+import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
+import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
 import javax.inject.Inject
 
@@ -11,9 +16,7 @@ import javax.inject.Inject
  */
 class Router @Inject constructor(private var activity: BaseActivity) {
 
-    /* fun goToMenu() {
 
-    }*/
 
     private fun start(classOf: Class<*>) {
         val intent = BaseSubActivity.createIntent(activity)
@@ -48,6 +51,24 @@ class Router @Inject constructor(private var activity: BaseActivity) {
     fun sendToPlaceFragment(location: String) {
         var bundle = Bundle()
         bundle.putString(Constant.HELLO, location)
-        start(PlaceFragment::class.java, bundle)
+        // start(PlaceFragment::class.java, bundle)
     }
+
+    fun goToPathological() {
+        start(PathologicalFragment::class.java)
+    }
+
+    fun goToChatBoot() {
+        start(ChatBootFragment::class.java)
+    }
+
+    fun goToChatHealthyTip() {
+        start(HealthTipsFragment::class.java)
+    }
+
+    fun goToMenu() {
+        start(MenuFragment::class.java)
+    }
+
+
 }
