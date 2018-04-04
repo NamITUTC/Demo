@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseSubActivity
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
+import com.example.nam.demobasekotlin.ui.ibm.IBMFragment
 import com.example.nam.demobasekotlin.ui.login.LoginFragment
 import com.example.nam.demobasekotlin.ui.main.MainFragment
 
@@ -82,6 +83,10 @@ class Router @Inject constructor(private var activity: BaseActivity) {
 
     fun goToMain() {
         start(MainFragment::class.java)
+    }
+
+    fun goIBM() {
+        start(IBMFragment::class.java)
     }
 
 

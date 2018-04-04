@@ -11,6 +11,9 @@ import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatPresenter
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatPresenterImpl
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenter
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootPresenterImpl
+import com.example.nam.demobasekotlin.ui.ibm.IBMFragment
+import com.example.nam.demobasekotlin.ui.ibm.IBMPresenter
+import com.example.nam.demobasekotlin.ui.ibm.IBMPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.MainPresenter
 import com.example.nam.demobasekotlin.ui.main.MainPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsPresenter
@@ -90,6 +93,11 @@ class ActivityModule(activity: BaseActivity) {
 
     @Provides
     fun bindRegisterPresenter(presenter: RegisterPresenterImpl): RegisterPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindIBMPresenter(presenter: IBMPresenterImpl): IBMPresenter {
         return presenter
     }
 }

@@ -35,7 +35,7 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
 
     override fun initView() {
         bottom_navigation.setOnNavigationItemSelectedListener(this)
-      //  loadFragment(MapFragment())
+        loadFragment(MapFragment())
     }
 
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
@@ -54,7 +54,7 @@ class MenuFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
     private fun loadFragment(fragment: BaseFragment) {
         val transaction = fragmentManager!!.beginTransaction()
         transaction.replace(R.id.container_menu, fragment)
-        transaction.addToBackStack(null)
+      //  transaction.addToBackStack(null)
         transaction.commit()
     }
 }

@@ -49,7 +49,7 @@ class MainFragment : BaseFragment(), View.OnClickListener {
             R.id.btn_chat_bot -> router.goToChatBoot()
             R.id.btn_menu -> router.goToMenu()
             R.id.btn_healthy_tip -> router.goToChatHealthyTip()
-            R.id.btn_tf ->  router.goToMenu()
+            R.id.btn_tf ->  router.goIBM()
         }
     }
 
