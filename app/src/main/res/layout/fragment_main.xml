@@ -155,7 +155,7 @@
                     android:layout_gravity="bottom"
                     android:gravity="center"
                     android:paddingBottom="@dimen/dimen10dp"
-                    android:text="@string/detect"
+                    android:text="@string/ibm"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </android.support.v7.widget.CardView>

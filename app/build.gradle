@@ -92,6 +92,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
     implementation 'com.google.firebase:firebase-core:12.0.0'
+    compile 'com.github.f0ris.sweetalert:library:1.5.2'
 
 }
 

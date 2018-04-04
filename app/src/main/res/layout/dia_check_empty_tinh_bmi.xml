@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff4dbfac"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:gravity="center"
+            android:src="@drawable/ic_carot"
+            android:textColor="#ff4dbfac"
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Chỉ số BMI:"
+            android:textColor="#ff808080"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/tv_index_bmi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10.0dip"
+            android:text="21.5"
+            android:textColor="#ffecc70d"
+            android:textSize="26.0sp" />
+
+        <TextView
+            android:id="@+id/tv_humanoid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Người bình thường"
+            android:textColor="#ff727272"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5.0dip"
+            android:text="Hãy chú ý luyện tập sức khỏe, ăn đủ chất dinh dưỡng và giữ mức cân giao động từ:"
+            android:textColor="#ff727272"
+            android:textSize="16.0sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_min_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="30"
+                android:textColor="#ff727272"
+                android:textSize="17.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5.0dip"
+                android:text="kg - "
+                android:textColor="#ff727272"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/tv_max_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="30"
+                android:textColor="#ff727272"
+                android:textSize="17.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="5.0dip"
+                android:text="kg"
+                android:textColor="#ff727272"
+                android:textSize="16.0sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_dia_tinhnmi_close"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/ic_bg_dialog_btn"
+        android:orientation="vertical"
+        android:text="Đóng"
+        android:textColor="#ffffffff"
+        android:textSize="16.0sp"
+        android:textStyle="bold" />
+</LinearLayout>

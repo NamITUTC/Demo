@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg_splash_screen"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10.0dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:fontFamily="cursive"
+            android:text="@string/caculateIBM"
+            android:textColor="#ff46d8bf"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#32fffefe"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20.0dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+
+                android:background="@drawable/ic_bg_edit_text"
+                android:padding="5.0dp">
+
+                <EditText
+                    android:id="@+id/edt_height"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50.0dp"
+                    android:drawableLeft="@drawable/ic_weight"
+                    android:drawablePadding="5.0dp"
+                    android:gravity="center_vertical"
+                    android:hint="Nhập chiều cao"
+                    android:inputType="number"
+                    android:paddingLeft="10.0dp"
+                    android:textColorHint="#ff838282" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dp"
+                android:background="@drawable/ic_bg_edit_text"
+                android:padding="5.0dp">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/edt_weight"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50.0dip"
+                    android:layout_marginTop="10.0dp"
+                    android:drawableLeft="@drawable/ic_height"
+                    android:drawablePadding="5.0dp"
+                    android:hint="Nhập cân nặng"
+                    android:inputType="number"
+                    android:paddingLeft="10.0dp"
+                    android:textColorHint="#ff838282" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/ic_bg_edit_text"
+                android:padding="5.0dp">
+
+                <Spinner
+                    android:id="@+id/sp_gender"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:hint="Giới tính"
+                    android:paddingLeft="10.0dp"
+                    android:textColor="#ff868686"
+                    android:textColorHint="#ffffffff" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_check"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_marginTop="50.0dip"
+                android:background="@drawable/ic_btn_tinh_bmi"
+                android:src="@drawable/ic_done" />
+        </LinearLayout>
+
+        <LinearLayout
+
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40.0dip"
+            android:background="#32fffefe"
+            android:padding="20.0dip">
+
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="* Lưu ý: "
+                android:textColor="#ff46d8bf"
+                android:textSize="18.0sp" />
+
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.3"
+                android:text="Tính toán trên chỉ áp dụng cho người trưởng thành"
+                android:textColor="#ffffffff"
+                android:textSize="16.0sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
