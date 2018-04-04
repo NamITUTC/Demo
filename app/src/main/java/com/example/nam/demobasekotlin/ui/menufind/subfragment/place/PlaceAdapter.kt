@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_place.view.*
  * Created by ThanhNam on 2/4/2018.
  */
 class PlaceAdapter(var places: List<Place>, var context: Context, var iClick: IClick) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PlaceViewHolder(LayoutInflater.from(context).inflate(R.layout.item_place, parent, false))
     }
 
@@ -24,7 +24,7 @@ class PlaceAdapter(var places: List<Place>, var context: Context, var iClick: IC
         return places.size
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is PlaceViewHolder) {
             holder.bind(places.get(position), context)
             holder.itemView.setOnClickListener {

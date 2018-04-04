@@ -23,14 +23,14 @@ class HealthTipAdapter(var tips: MutableList<HealthTip>, var iClick: IClick, var
         fun itemClick(position: Int, link: String)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is TipViewHolder) {
             holder.bind(tips.get(position), iClick, context)
             holder.itemView.setOnClickListener { iClick.itemClick(position, tips.get(position).linkDetail) }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return TipViewHolder(LayoutInflater.from(parent!!.context).inflate(R.layout.item_tip, parent, false))
     }
 

@@ -18,11 +18,11 @@ class PathologicalAdapter(var pathologicals: MutableList<Pathological>, mActivit
         return pathologicals.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PathologicalviewHolder(LayoutInflater.from(parent!!.context).inflate(R.layout.item_tip, parent, false))
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is PathologicalviewHolder) {
             holder.bind(pathologicals[position])
         }
