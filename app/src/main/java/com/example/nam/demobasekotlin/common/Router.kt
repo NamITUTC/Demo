@@ -4,18 +4,20 @@ import android.os.Bundle
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseSubActivity
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
+import com.example.nam.demobasekotlin.ui.login.LoginFragment
+import com.example.nam.demobasekotlin.ui.main.MainFragment
 
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
 import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
+import com.example.nam.demobasekotlin.ui.register.RegisterFragment
 import javax.inject.Inject
 
 /**
  * Created by ThanhNam on 2/4/2018.
  */
 class Router @Inject constructor(private var activity: BaseActivity) {
-
 
 
     private fun start(classOf: Class<*>) {
@@ -68,6 +70,18 @@ class Router @Inject constructor(private var activity: BaseActivity) {
 
     fun goToMenu() {
         start(MenuFragment::class.java)
+    }
+
+    fun goToLogin() {
+        start(LoginFragment::class.java)
+    }
+
+    fun getToRegister() {
+        start(RegisterFragment::class.java)
+    }
+
+    fun goToMain() {
+        start(MainFragment::class.java)
     }
 
 

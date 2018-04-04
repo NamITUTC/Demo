@@ -19,6 +19,8 @@ import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenter
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenterImpl
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenter
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenterImpl
+import com.example.nam.demobasekotlin.ui.register.RegisterPresenter
+import com.example.nam.demobasekotlin.ui.register.RegisterPresenterImpl
 import dagger.Module
 import dagger.Provides
 
@@ -83,6 +85,11 @@ class ActivityModule(activity: BaseActivity) {
 
     @Provides
     fun bindPathologicalPresenter(presenter: PathologicalPresenterImpl): PathologicalPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindRegisterPresenter(presenter: RegisterPresenterImpl): RegisterPresenter {
         return presenter
     }
 }

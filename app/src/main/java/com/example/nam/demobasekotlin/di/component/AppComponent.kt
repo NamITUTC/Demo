@@ -1,9 +1,6 @@
 package com.example.nam.demobasekotlin.di.component
 
-import com.example.nam.demobasekotlin.di.module.ActivityModule
-import com.example.nam.demobasekotlin.di.module.ApplicationModule
-import com.example.nam.demobasekotlin.di.module.NetworkModule
-import com.example.nam.demobasekotlin.di.module.StorageModule
+import com.example.nam.demobasekotlin.di.module.*
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,7 +12,7 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(
         ApplicationModule::class,
         NetworkModule::class,
-        StorageModule::class))
+        StorageModule::class, FirebaseModule::class))
 
 interface AppComponent {
      fun plus(module: ActivityModule): ActivityComponent

@@ -28,5 +28,16 @@
     <string name="place">Địa chỉ tin cậy</string>
     <string name="detect">Nhận diện thuốc</string>
     <string name="camera_error">This device doesn\\\'t support Camera2 API.</string>
+    <string name="btnlogin">Login</string>
+    <string name="signupnow">SignUpNow</string>
+    <string name="enter_email">input your email</string>
+    <string name="enterthepss">input your password</string>
+    <string name="mini_app_name">life for you</string>
+    <string name="rememberpass">ghi nhớ</string>
+    <string name="signup">SignUp</string>
+    <string name="confim_pass">confirm pass</string>
+    <string name="email_erorr">emailerror</string>
+    <string name="pass_error">passerror</string>
+    <string name="confim_pass_erorr">confirmpass error</string>
 
 </resources>

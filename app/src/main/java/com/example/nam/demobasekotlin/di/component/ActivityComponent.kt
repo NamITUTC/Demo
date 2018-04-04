@@ -1,6 +1,7 @@
 package com.example.nam.demobasekotlin.di.component
 
 import com.example.nam.demobasekotlin.di.module.ActivityModule
+import com.example.nam.demobasekotlin.di.module.FirebaseModule
 import com.example.nam.demobasekotlin.di.module.RealmModule
 import com.example.nam.demobasekotlin.di.module.StorageModule
 import com.example.nam.demobasekotlin.ui.login.LoginFragment
@@ -12,6 +13,7 @@ import com.example.nam.demobasekotlin.ui.main.MainFragment
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
+import com.example.nam.demobasekotlin.ui.register.RegisterFragment
 import dagger.Subcomponent
 
 /**
@@ -20,7 +22,8 @@ import dagger.Subcomponent
 
 @Subcomponent(modules = arrayOf(ActivityModule::class
         , RealmModule::class
-        , StorageModule::class))
+        , StorageModule::class
+        ))
 interface ActivityComponent {
 
     fun inject(loginFragment: LoginFragment)
@@ -32,5 +35,6 @@ interface ActivityComponent {
     fun inject(mapFragment: MapFragment)
     fun inject(pathologicalFragment: PathologicalFragment)
     fun inject(healthTipsFragment: HealthTipsFragment)
+    fun inject(registerFragment: RegisterFragment)
 
 }
