@@ -39,5 +39,6 @@
     <string name="email_erorr">emailerror</string>
     <string name="pass_error">passerror</string>
     <string name="confim_pass_erorr">confirmpass error</string>
+    <string name="time">time</string>
 
 </resources>
