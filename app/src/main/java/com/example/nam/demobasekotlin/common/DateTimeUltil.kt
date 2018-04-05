@@ -23,7 +23,7 @@ class DateTimeUltil{
         }
 
         fun convertLongToTime(time: Long): String {
-            var timeString: String? = null
+            var timeString: String?
             var totalSecond = time / 1000
             if (totalSecond < 60) {
                 timeString = "$totalSecond giây trước "

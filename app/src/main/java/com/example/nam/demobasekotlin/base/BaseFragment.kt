@@ -41,7 +41,7 @@ abstract class BaseFragment : Fragment(),BaseView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        mRootView= inflater!!.inflate(getLayOutRes(),container,false)
+        mRootView= inflater.inflate(getLayOutRes(),container,false)
         unbinder=ButterKnife.bind(this,mRootView)
         return mRootView
     }
