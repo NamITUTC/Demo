@@ -5,4 +5,5 @@ package com.example.nam.demobasekotlin.ui.main.adapter
  */
 interface IClick {
     fun itemClick(postion: Int)
+    fun itemClick(position: Int, link: String)
 }

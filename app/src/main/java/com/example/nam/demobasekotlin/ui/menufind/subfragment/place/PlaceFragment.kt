@@ -1,9 +1,11 @@
 package com.example.nam.demobasekotlin.ui.menufind.subfragment.place
 
 import android.app.ProgressDialog
+import android.graphics.Color
 import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.nam.demobasekotlin.App
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
@@ -20,6 +22,9 @@ import javax.inject.Inject
  * Created by nam on 20/12/2017.
  */
 class PlaceFragment : BaseFragment(), IClick, PlaceView {
+    override fun itemClick(position: Int, link: String) {
+
+    }
 
 
     @Inject
@@ -29,9 +34,9 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     lateinit var places2: MutableList<Place>
     lateinit var places: MutableList<Place>
     lateinit var tempLocation: MutableList<String>
-    var d=0;
+    lateinit var dialog: SweetAlertDialog
+    var d = 0
     var count = 0
-     lateinit var p :ProgressDialog
     override fun injectDependence() {
         component.inject(this)
     }
@@ -45,16 +50,21 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
         places1 = mutableListOf()
         places2 = mutableListOf()
         tempLocation = mutableListOf()
+        dialog = SweetAlertDialog(activity, 5)
+        dialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+        dialog.titleText = "Loading"
+        dialog.setCancelable(true)
+        dialog.show()
         presenter.getAllPlace(App.get().currentPosition)
     }
 
     override fun initView() {
-       /* p=ProgressDialog(activity!!)
-        var handler = Handler()
-        handler.postDelayed({
+        /* p=ProgressDialog(activity!!)
+         var handler = Handler()
+         handler.postDelayed({
 
-            p.show()
-        },2000)*/
+             p.show()
+         },2000)*/
 
         placeAdapter = PlaceAdapter(places, activity!!, this)
         rc_places.apply {
@@ -84,7 +94,7 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
                         places1[i].rate, places2[i].distance, places2[i].time, places2[i].poliline))
                 placeAdapter.notifyDataSetChanged()
             }
-            //
+            dialog.dismiss()
         }
         /*if(d==count){
             p.dismiss()
@@ -107,7 +117,7 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
             var name = ""
             var address = ""
             if (result.results[i].photos != null) {
-                if (result.results[i].photos!!.get(0)?.photoReference != null) {
+                if (result.results[i].photos!![0].photoReference != null) {
                     s = result.results[i].photos?.get(0)?.photoReference!!
                 }
             }

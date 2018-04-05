@@ -11,8 +11,8 @@ import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
 
 class MainActivity : BaseActivity() {
     override fun initFragment(): BaseFragment {
-    val f= LoginFragment()
-        return f
+    /*val f= LoginFragment()
+        return f*/
 
         /*val f = IBMFragment()
         return f*/
@@ -20,6 +20,8 @@ class MainActivity : BaseActivity() {
         return d*/
         /*val f= MenuFragment()
         return f*/
+        val f=MainFragment()
+        return f
     }
 
 

@@ -16,10 +16,16 @@ import com.example.nam.demobasekotlin.ui.ibm.IBMPresenter
 import com.example.nam.demobasekotlin.ui.ibm.IBMPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.MainPresenter
 import com.example.nam.demobasekotlin.ui.main.MainPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.healthtips.DetailHealthyTipsPresenter
+import com.example.nam.demobasekotlin.ui.main.healthtips.DetailHealthyTipsPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsPresenter
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsPresenterImpl
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenter
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.pathologicalInfor.PathologicalInforPresenter
+import com.example.nam.demobasekotlin.ui.main.pathologicalInfor.PathologicalInforPresenterImpl
+import com.example.nam.demobasekotlin.ui.main.pathologicaldetail.PathologicalDetailImpl
+import com.example.nam.demobasekotlin.ui.main.pathologicaldetail.PathologicalDetailPresenter
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenter
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlacePresenterImpl
 import com.example.nam.demobasekotlin.ui.register.RegisterPresenter
@@ -98,6 +104,21 @@ class ActivityModule(activity: BaseActivity) {
 
     @Provides
     fun bindIBMPresenter(presenter: IBMPresenterImpl): IBMPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindDetailHealthyPresenter(presenter: DetailHealthyTipsPresenterImpl): DetailHealthyTipsPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindDetailPathologicalPresenter(presenter: PathologicalDetailImpl): PathologicalDetailPresenter {
+        return presenter
+    }
+
+    @Provides
+    fun bindInfroPathologicalPresenter(presenter: PathologicalInforPresenterImpl): PathologicalInforPresenter {
         return presenter
     }
 }

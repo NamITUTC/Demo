@@ -1,7 +1,6 @@
 package com.example.nam.demobasekotlin.di.component
 
 import com.example.nam.demobasekotlin.di.module.ActivityModule
-import com.example.nam.demobasekotlin.di.module.FirebaseModule
 import com.example.nam.demobasekotlin.di.module.RealmModule
 import com.example.nam.demobasekotlin.di.module.StorageModule
 import com.example.nam.demobasekotlin.ui.login.LoginFragment
@@ -11,8 +10,11 @@ import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatFragment
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
 import com.example.nam.demobasekotlin.ui.ibm.IBMFragment
 import com.example.nam.demobasekotlin.ui.main.MainFragment
+import com.example.nam.demobasekotlin.ui.main.healthtips.DetailHealthyTipsFragment
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
+import com.example.nam.demobasekotlin.ui.main.pathologicalInfor.PathologicalInforFragment
+import com.example.nam.demobasekotlin.ui.main.pathologicaldetail.PathologicalDetailFragment
 import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
 import com.example.nam.demobasekotlin.ui.register.RegisterFragment
 import dagger.Subcomponent
@@ -38,5 +40,8 @@ interface ActivityComponent {
     fun inject(healthTipsFragment: HealthTipsFragment)
     fun inject(registerFragment: RegisterFragment)
     fun inject(ibmFragment: IBMFragment)
+    fun inject(detailHealthyTipsFragment: DetailHealthyTipsFragment)
+    fun inject(pathologicalDetailFragment: PathologicalDetailFragment)
+    fun inject(pathologicalInforFragment: PathologicalInforFragment)
 
 }

@@ -27,5 +27,8 @@ open interface Constant {
         val  PRE_USER_ID="prefs_id"
         val FRIEND_PATH ="FRIEND"
         val CHAT="CHAT"
+        val LINKHEALTHYTIPS: String?="LINKHEALTHYTIPS"
+        val LINKDETAILPATHOLOGICAL: String?="LINKDETAILPATHOLOGICAL"
+        val LINKINFORPATHOLOGICAL: String?="LINKINFORPATHOLOGICAL"
     }
 }

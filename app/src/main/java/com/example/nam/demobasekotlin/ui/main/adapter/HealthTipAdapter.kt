@@ -38,7 +38,7 @@ class HealthTipAdapter(var tips: MutableList<HealthTip>, var iClick: IClick, var
         fun bind(healthTip: HealthTip, iClick: IClick, context: Context) {
             itemView.txt_title_tip.text = healthTip.title
             itemView.txt_content_tip.text = healthTip.content
-            Glide.with(context).load(healthTip.image).into(itemView.img_ava_tip)
+           // Glide.with(context).load(healthTip.image).into(itemView.img_ava_tip)
         }
     }
 }

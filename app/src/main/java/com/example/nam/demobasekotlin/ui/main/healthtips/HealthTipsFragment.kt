@@ -2,9 +2,11 @@ package com.example.nam.demobasekotlin.ui.main.healthtips
 
 import android.support.v7.widget.LinearLayoutManager
 import com.example.nam.demobasekotlin.R
+import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import com.example.nam.demobasekotlin.common.Router
 import com.ominext.namnt.demorequestapiapplication.adapter.HealthTipAdapter
 import com.ominext.namnt.demorequestapiapplication.model.HealthTip
 import kotlinx.android.synthetic.main.fragment_healthtips.*
@@ -18,6 +20,8 @@ class HealthTipsFragment : BaseFragment(), HealthTipAdapter.IClick, HealthTipsVi
 
     @Inject
     lateinit var presenter: HealthTipsPresenter
+    @Inject
+    lateinit var router: Router
     lateinit var healthTipsAdapter: HealthTipAdapter
     lateinit var healthTips: MutableList<HealthTip>
 
@@ -47,18 +51,19 @@ class HealthTipsFragment : BaseFragment(), HealthTipAdapter.IClick, HealthTipsVi
     override fun <T : BaseView> getPresenter(): BasePresenter<T>? {
         return presenter as BasePresenter<T>
     }
+
     override fun onSuccess(data: MutableList<HealthTip>) {
-        for(i in data){
+        for (i in data) {
             healthTips.add(i)
         }
         healthTipsAdapter.notifyDataSetChanged()
     }
 
-    override fun onFail(toString: String) {
-
+    override fun onFail(error: String) {
+        ToastUltil.show(this.activity!!, error)
     }
 
     override fun itemClick(position: Int, link: String) {
-
+        router.goToDetailHealthyTips(link)
     }
 }

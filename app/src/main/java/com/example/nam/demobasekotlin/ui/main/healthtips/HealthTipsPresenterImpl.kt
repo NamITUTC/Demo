@@ -26,20 +26,22 @@ class HealthTipsPresenterImpl : HealthTipsPresenter, BasePresenterImpl<HealthTip
     override fun getAllHealthTips() {
         ApiClient.getInstance()!!.create(ApiServiceMain::class.java)
                 .getAllHealthTips().enqueue(object : retrofit2.Callback<MutableList<HealthTip>> {
-                    override fun onFailure(call: retrofit2.Call<MutableList<HealthTip>>?, t: Throwable?) {
-                        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                    }
+            override fun onFailure(call: retrofit2.Call<MutableList<HealthTip>>?, t: Throwable?) {
+                if (t != null) {
+                    getView()!!.onFail(t.message!!)
+                }
+            }
 
-                    override fun onResponse(call: retrofit2.Call<MutableList<HealthTip>>?, response: Response<MutableList<HealthTip>>?) {
-                        if(response!!.isSuccessful){
-                            getView()!!.onSuccess(response.body())
-                        }
-                    }
-                })
-               /* .getAllHealthTips().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ data -> getView()!!.onSuccess(data) },
-                        { fail -> getView()!!.onFail(fail.toString()) })*/
+            override fun onResponse(call: retrofit2.Call<MutableList<HealthTip>>?, response: Response<MutableList<HealthTip>>?) {
+                if (response!!.isSuccessful) {
+                    getView()!!.onSuccess(response.body())
+                }
+            }
+        })
+        /* .getAllHealthTips().subscribeOn(Schedulers.io())
+         .observeOn(AndroidSchedulers.mainThread())
+         .subscribe({ data -> getView()!!.onSuccess(data) },
+                 { fail -> getView()!!.onFail(fail.toString()) })*/
     }
 
 }

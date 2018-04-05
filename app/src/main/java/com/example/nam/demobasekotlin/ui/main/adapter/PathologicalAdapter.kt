@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseActivity
+import com.example.nam.demobasekotlin.ui.main.adapter.IClick
 import com.ominext.namnt.demorequestapiapplication.model.Pathological
 import kotlinx.android.synthetic.main.item_tip.view.*
 
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.item_tip.view.*
 /**
  * Created by nam on 02/02/2018.
  */
-class PathologicalAdapter(var pathologicals: MutableList<Pathological>, mActivity: BaseActivity) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PathologicalAdapter(var pathologicals: MutableList<Pathological>, mActivity: BaseActivity,var iClick:IClick) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int {
         return pathologicals.size
     }
@@ -25,6 +26,7 @@ class PathologicalAdapter(var pathologicals: MutableList<Pathological>, mActivit
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is PathologicalviewHolder) {
             holder.bind(pathologicals[position])
+            holder.itemView.setOnClickListener { iClick.itemClick(position, pathologicals[position].link!!) }
         }
     }
 
@@ -32,7 +34,7 @@ class PathologicalAdapter(var pathologicals: MutableList<Pathological>, mActivit
         fun bind(pathological: Pathological) {
             //itemView.txt_id_tip.text = pathological.id.toString()
             itemView.txt_title_tip.text = pathological.title.toString()
-            itemView.txt_content_tip.text = pathological.detail.toString()
+            itemView.txt_content_tip.text = pathological.content.toString()
 
         }
     }

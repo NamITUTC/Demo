@@ -7,11 +7,12 @@ import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
 import com.example.nam.demobasekotlin.ui.ibm.IBMFragment
 import com.example.nam.demobasekotlin.ui.login.LoginFragment
 import com.example.nam.demobasekotlin.ui.main.MainFragment
-
+import com.example.nam.demobasekotlin.ui.main.healthtips.DetailHealthyTipsFragment
 import com.example.nam.demobasekotlin.ui.main.healthtips.HealthTipsFragment
 import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
+import com.example.nam.demobasekotlin.ui.main.pathologicalInfor.PathologicalInforFragment
+import com.example.nam.demobasekotlin.ui.main.pathologicaldetail.PathologicalDetailFragment
 import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
-import com.example.nam.demobasekotlin.ui.menufind.subfragment.place.PlaceFragment
 import com.example.nam.demobasekotlin.ui.register.RegisterFragment
 import javax.inject.Inject
 
@@ -87,6 +88,24 @@ class Router @Inject constructor(private var activity: BaseActivity) {
 
     fun goIBM() {
         start(IBMFragment::class.java)
+    }
+
+    fun goToDetailHealthyTips(link: String) {
+        var bundle = Bundle()
+        bundle.putString(Constant.LINKHEALTHYTIPS, link)
+        start(DetailHealthyTipsFragment::class.java, bundle)
+    }
+
+    fun goToPathologicalDetail(link: String) {
+        var bundle = Bundle()
+        bundle.putString(Constant.LINKDETAILPATHOLOGICAL, link)
+        start(PathologicalDetailFragment::class.java, bundle)
+    }
+
+    fun goToPathologicalInfor(link: String) {
+        var bundle = Bundle()
+        bundle.putString(Constant.LINKINFORPATHOLOGICAL, link)
+        start(PathologicalInforFragment::class.java, bundle)
     }
 
 
