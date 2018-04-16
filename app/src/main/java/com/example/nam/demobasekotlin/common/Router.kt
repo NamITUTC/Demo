@@ -13,6 +13,7 @@ import com.example.nam.demobasekotlin.ui.main.pathological.PathologicalFragment
 import com.example.nam.demobasekotlin.ui.main.pathologicalInfor.PathologicalInforFragment
 import com.example.nam.demobasekotlin.ui.main.pathologicaldetail.PathologicalDetailFragment
 import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
+import com.example.nam.demobasekotlin.ui.menufind.subfragment.Chat.ChatFragment
 import com.example.nam.demobasekotlin.ui.register.RegisterFragment
 import javax.inject.Inject
 
@@ -106,6 +107,10 @@ class Router @Inject constructor(private var activity: BaseActivity) {
         var bundle = Bundle()
         bundle.putString(Constant.LINKINFORPATHOLOGICAL, link)
         start(PathologicalInforFragment::class.java, bundle)
+    }
+
+    fun goToChat() {
+        start(ChatFragment::class.java)
     }
 
 

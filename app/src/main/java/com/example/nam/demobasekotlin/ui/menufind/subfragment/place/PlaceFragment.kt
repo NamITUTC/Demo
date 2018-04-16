@@ -11,6 +11,7 @@ import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
+import com.example.nam.demobasekotlin.common.Router
 import com.example.nam.demobasekotlin.models.map.Derection
 import com.example.nam.demobasekotlin.models.map.Example
 import com.example.nam.demobasekotlin.models.map.Place
@@ -27,6 +28,8 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     }
 
 
+    @Inject
+    lateinit var router: Router
     @Inject
     lateinit var presenter: PlacePresenter
     lateinit var placeAdapter: PlaceAdapter
@@ -104,7 +107,7 @@ class PlaceFragment : BaseFragment(), IClick, PlaceView {
     }
 
     override fun itemClick(postion: Int) {
-
+        router.goToChat()
     }
 
     override fun getAllPlaceSuccess(result: Example) {

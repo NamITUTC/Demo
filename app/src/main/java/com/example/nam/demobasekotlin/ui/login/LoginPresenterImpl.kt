@@ -39,7 +39,7 @@ class LoginPresenterImpl : BasePresenterImpl<LoginView>, LoginPresenter {
                     getView()!!.onLoginSuccessfull()
                 }
                 .addOnFailureListener { exception: Exception ->
-                    getView()!!.onRequestFailure(exception.toString())
+                    getView()!!.onLoginFail(exception.toString())
                 }
     }
 
@@ -47,7 +47,8 @@ class LoginPresenterImpl : BasePresenterImpl<LoginView>, LoginPresenter {
         val user = fAuth.currentUser
         if (user != null) {
             if (user.isEmailVerified) {
-                getUserDatabase(user.uid)
+              //  getUserDatabase(user.uid)
+                getView()!!.OnVerified(user.uid)
 
             } else {
                 fAuth.signOut()
@@ -69,7 +70,7 @@ class LoginPresenterImpl : BasePresenterImpl<LoginView>, LoginPresenter {
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
-                getView()!!.onRequestFailure(databaseError.toString())
+               // getView()!!.onRequestFailure(databaseError.toString())
             }
         })
 

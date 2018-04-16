@@ -1,5 +1,6 @@
 package com.example.nam.demobasekotlin
 
+import android.content.Intent
 import com.example.nam.demobasekotlin.base.BaseActivity
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.ui.chatboot.ChatBootFragment
@@ -7,12 +8,21 @@ import com.example.nam.demobasekotlin.ui.ibm.IBMFragment
 import com.example.nam.demobasekotlin.ui.login.LoginFragment
 import com.example.nam.demobasekotlin.ui.main.MainFragment
 import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
+import com.google.firebase.auth.FirebaseAuth
 
 
 class MainActivity : BaseActivity() {
+    var firebaseAuth= FirebaseAuth.getInstance()
     override fun initFragment(): BaseFragment {
-    /*val f= LoginFragment()
-        return f*/
+
+
+        if( firebaseAuth.currentUser!=null) {
+          val  f=MainFragment()
+            return f
+        }else{
+            val f= LoginFragment()
+            return f
+        }
 
         /*val f = IBMFragment()
         return f*/
@@ -20,8 +30,8 @@ class MainActivity : BaseActivity() {
         return d*/
         /*val f= MenuFragment()
         return f*/
-        val f=MainFragment()
-        return f
+       /* val f=MainFragment()
+        return f*/
     }
 
 

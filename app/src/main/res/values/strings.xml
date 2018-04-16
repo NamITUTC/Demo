@@ -5,7 +5,7 @@
     <string name="view">view</string>
     <string name="chat">chat</string>
     <string name="search">Search</string>
-    <string name="what_s_on_your_mind">enter your question</string>
+    <string name="what_s_on_your_mind">Enter your question</string>
     <string name="workspace_id">6e5faf1a-9eeb-4f4b-9df8-dd5edaaa7711</string> 
     <string name="conversationUsername">1d82fb20-a16c-49ab-bbec-df261f1d973f</string> 
     <string name="conversationPassword">Ub3w5oleo1FF</string>  
@@ -33,7 +33,7 @@
     <string name="enter_email">input your email</string>
     <string name="enterthepss">input your password</string>
     <string name="mini_app_name">life for you</string>
-    <string name="rememberpass">ghi nhớ</string>
+    <string name="rememberpass">Remember me</string>
     <string name="signup">SignUp</string>
     <string name="confim_pass">confirm pass</string>
     <string name="email_erorr">emailerror</string>
@@ -42,5 +42,7 @@
     <string name="time">time</string>
     <string name="caculateIBM">Tính IBM</string>
     <string name="ibm">Tính IBM</string>
+    <string name="question">Câu Hỏi</string>
+    <string name="answer">Enter the answer</string>
 
 </resources>

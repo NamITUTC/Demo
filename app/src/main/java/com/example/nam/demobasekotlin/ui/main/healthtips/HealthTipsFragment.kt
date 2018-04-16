@@ -1,6 +1,8 @@
 package com.example.nam.demobasekotlin.ui.main.healthtips
 
+import android.graphics.Color
 import android.support.v7.widget.LinearLayoutManager
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
@@ -24,6 +26,7 @@ class HealthTipsFragment : BaseFragment(), HealthTipAdapter.IClick, HealthTipsVi
     lateinit var router: Router
     lateinit var healthTipsAdapter: HealthTipAdapter
     lateinit var healthTips: MutableList<HealthTip>
+    lateinit var dialog: SweetAlertDialog
 
     override fun injectDependence() {
         component.inject(this)
@@ -34,8 +37,13 @@ class HealthTipsFragment : BaseFragment(), HealthTipAdapter.IClick, HealthTipsVi
     }
 
     override fun initData() {
+        dialog = SweetAlertDialog(activity, 5)
         presenter.getAllHealthTips()
 
+        dialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+        dialog.titleText = "Loading"
+        dialog.setCancelable(true)
+        dialog.show()
 
     }
 
@@ -57,6 +65,7 @@ class HealthTipsFragment : BaseFragment(), HealthTipAdapter.IClick, HealthTipsVi
             healthTips.add(i)
         }
         healthTipsAdapter.notifyDataSetChanged()
+        dialog.dismiss()
     }
 
     override fun onFail(error: String) {

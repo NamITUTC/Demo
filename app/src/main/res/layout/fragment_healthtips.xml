@@ -22,7 +22,7 @@
             <android.support.v7.widget.Toolbar
                 style="@style/ThemeOverlay.AppCompat.Light"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"></android.support.v7.widget.Toolbar>
+                android:layout_height="?actionBarSize" />
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -34,9 +34,10 @@
 
         <android.support.v7.widget.SearchView
             android:id="@+id/sv_search"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v7.widget.SearchView>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rc_tips"

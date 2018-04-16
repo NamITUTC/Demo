@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.os.Handler
 import com.example.nam.demobasekotlin.MainActivity
 import com.example.nam.demobasekotlin.R
+import com.example.nam.demobasekotlin.ui.menufind.MenuFragment
+import com.google.firebase.auth.FirebaseAuth
+import javax.inject.Inject
 
 class SplashActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +21,10 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun sends() {
-        startActivity(Intent(this,MainActivity::class.java))
+
+          startActivity(Intent(this,MainActivity::class.java))
+
+
         finish()
     }
 }

@@ -65,11 +65,8 @@ class ChatBootAdapter(val messageArrayList: MutableList<Message>, val ITrain: IT
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        internal var message: TextView
+        internal var message: TextView = itemView.findViewById(R.id.message)
 
-        init {
-            message = itemView.findViewById(R.id.message)
-        }
     }
 
 }

@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiClient {
     companion object {
         private var retrofit: Retrofit? = null
-        private val BASE_URL: String = "http://192.168.42.39:9068/"
+        private val BASE_URL: String = "https://vihealthy.herokuapp.com/"
 
         fun getInstance(): Retrofit? {
             return if (retrofit == null) {

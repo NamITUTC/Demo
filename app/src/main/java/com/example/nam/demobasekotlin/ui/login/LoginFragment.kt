@@ -1,10 +1,10 @@
 package com.example.nam.demobasekotlin.ui.login
 
 
-import android.app.ProgressDialog
 import android.view.View
+import cn.pedant.SweetAlert.SweetAlertDialog
+import com.example.nam.demobasekotlin.App
 import com.example.nam.demobasekotlin.R
-import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
 import com.example.nam.demobasekotlin.base.BaseView
@@ -22,12 +22,12 @@ import javax.inject.Inject
 
 class LoginFragment : BaseFragment(), View.OnClickListener, LoginView {
 
+
     @Inject
     lateinit var presenter: LoginPresenter
     @Inject
     lateinit var router: Router
-    //private lateinit var dialogUtils: DialogUtils
-    private var dialog: ProgressDialog? = null
+    private lateinit var dialog: SweetAlertDialog
 
     private var email: String? = null
     private var pass: String? = null
@@ -45,7 +45,11 @@ class LoginFragment : BaseFragment(), View.OnClickListener, LoginView {
     }
 
     override fun initData() {
-        //  dialogUtils = DialogUtils(dialog, activity!!)
+       dialog = SweetAlertDialog(activity, 1)
+        dialog.titleText = "Oops.."
+        dialog.confirmText = "Đóng"
+        dialog.contentText = "Bạn phải xác nhận Email!"
+               dialog .setConfirmClickListener { dialog.dismiss() }
 
     }
 
@@ -54,7 +58,10 @@ class LoginFragment : BaseFragment(), View.OnClickListener, LoginView {
         btnRegis.setOnClickListener(this)
         // onGetIntent()
     }
-
+    override fun OnVerified(uid: String) {
+        App.get().uId=uid
+        router.goToMain()
+    }
     private fun onGetIntent() {
         email = activity!!.intent.getStringExtra(Constant.KEY_EMAIL)
         pass = activity!!.intent.getStringExtra(Constant.KEY_PASS)
@@ -84,45 +91,46 @@ class LoginFragment : BaseFragment(), View.OnClickListener, LoginView {
             //   dialogUtils.showLoading()
             email = edtLoginEmail.text.toString().trim()
             pass = edtLoginPass.text.toString().trim()
-            if (Remember.isChecked) {
+         /*   if (Remember.isChecked) {
                 presenter.rememberUser(email!!, pass!!)
 
 
             } else {
                 presenter.dismissUser()
 
-            }
+            }*/
             presenter.onSignIn(email!!, pass!!)
         }
     }
 
-    override fun onRequestFailure(string: String) {
+    override fun onLoginFail(string: String) {
         //   dialogUtils.hideLoading()
         if (!activity!!.isFinishing) {
             //      DialogUtils.showErorr(activity!!, string)
         }
-        ToastUltil.show(activity!!, string)
+        dialog.contentText = "Tài Khoản chưa được đăng ký"
+        dialog.show()
 
     }
 
 
     override fun onLoginSuccessfull() {
         presenter.checkEmailVerified()
-        ToastUltil.show(activity!!, "success")
-        router.goToMain()
+      //  ToastUltil.show(activity!!, "success")
+
 
     }
 
     override fun onVerified(user: User?) {
         //
         //  dialogUtils.hideLoading()
-        presenter.saveUser(user)
+     //   presenter.saveUser(user)
+
 
     }
 
     override fun onViriFail() {
-        //  dialogUtils.hideLoading()
-        //  DialogUtils.showErorr(activity!!, Constant.VERY_FAIL)
+        dialog.show()
     }
 
 

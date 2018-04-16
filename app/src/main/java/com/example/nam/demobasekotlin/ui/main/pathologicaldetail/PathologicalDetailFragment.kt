@@ -1,8 +1,10 @@
 package com.example.nam.demobasekotlin.ui.main.pathologicaldetail
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.Util.ToastUltil
 import com.example.nam.demobasekotlin.base.BaseFragment
@@ -36,6 +38,7 @@ class PathologicalDetailFragment : BaseFragment(), PathologicalDetailView, IClic
     lateinit var pathologicals: MutableList<Pathological>
     lateinit var pathologicalAdapter: PathologicalAdapter
     lateinit var url: String
+    lateinit var dialog: SweetAlertDialog
     override fun injectDependence() {
         component.inject(this)
     }
@@ -48,7 +51,15 @@ class PathologicalDetailFragment : BaseFragment(), PathologicalDetailView, IClic
         var intent: Intent = activity!!.getIntent()
         var bundle = intent.getBundleExtra(BaseSubActivity.EXTRA_FRAGMENT_ARGS)
         url = bundle.getString(Constant.LINKDETAILPATHOLOGICAL)
+
+
+        dialog = SweetAlertDialog(activity, 5)
         presenter.getAllPathological(url)
+
+        dialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+        dialog.titleText = "Loading"
+        dialog.setCancelable(true)
+        dialog.show()
     }
 
     override fun initView() {
@@ -73,6 +84,7 @@ class PathologicalDetailFragment : BaseFragment(), PathologicalDetailView, IClic
             pathologicals.add(item)
         }
         pathologicalAdapter.notifyDataSetChanged()
+        dialog.dismiss()
     }
 
 }

@@ -20,7 +20,7 @@ class App : Application() {
     private lateinit var component: AppComponent
     private lateinit var realm: Realm
      var currentPosition: String = ""
-    val uId="V6rQn2AmKXPfA5Uj0YRiQoyN9Ix2"
+    var uId="V6rQn2AmKXPfA5Uj0YRiQoyN9Ix2"
     companion object {
         private lateinit var instance: App
         fun get(): App {

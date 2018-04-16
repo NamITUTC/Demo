@@ -49,7 +49,7 @@ class ChatFragment : BaseFragment(), View.OnClickListener, ChatView, IitemClick,
     private var count = 0
     private var mImgUserSend: String = ""
 
-    var mChatItem = Chat("kImI1KFMqISlQWCiQ2CSLBTngNj1", null, null, null, null)
+    var mChatItem = Chat("lBWkBdO2ftb1rirFc4ueQqWebxg1", null, null, null, null)
     override fun injectDependence() {
         component.inject(this)
     }

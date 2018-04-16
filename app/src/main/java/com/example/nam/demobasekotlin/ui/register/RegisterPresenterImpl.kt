@@ -56,9 +56,16 @@ class RegisterPresenterImpl : BasePresenterImpl<RegisterView>, RegisterPresenter
         val id = firebaseAuth.currentUser!!.uid
         val userName = (email.split("@".toRegex()))[0]
         val currentUser = User(id, userName, email, "", System.currentTimeMillis())
-        databaseReference.child(Constant.USERS_PATH).child(id).setValue(currentUser).addOnSuccessListener {
-            getView()!!.onCreateUserSuccessful()
-        }
+        databaseReference.child(Constant.USERS_PATH).child(id).setValue(currentUser)
+                .addOnSuccessListener {
+                    getView()!!.onCreateUserSuccessful()
+
+        }.addOnFailureListener { e->
+                    getView()!!.onCreateUserFail(e)
+                }
+
+
+
 
     }
 

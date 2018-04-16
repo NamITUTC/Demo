@@ -122,6 +122,7 @@ class ChatBootFragment : BaseFragment() {
 
 
                 })
+                dialogUpdateFragment.show(fragmentManager, "show")
             }
         })
 
@@ -186,19 +187,20 @@ class ChatBootFragment : BaseFragment() {
                                 Log.e("Add into Ennity : ", "Add succesfull!")
                                 //Add into Dialog.
                                 //   val output = HashMap
-                                //output.put("text", dialogUpdateFragment.getAnswer())
+                                val output = HashMap<String,String>()
+                                output["text"] = dialogUpdateFragment.getAnswer()
                                 val createDialogNodeOptions = CreateDialogNodeOptions.Builder()
                                         .workspaceId(workspace_id)
 
                                         .dialogNode("node_" + Calendar.getInstance().timeInMillis)
-                                        .conditions("@entity_example:" + value)
-                                        //         .output(output)
+                                        .conditions("@entity_example:$value")
+                                                .output(output)
                                         .nodeType("response_condition")
                                         .parent("node_8_1514516712522")
                                         .build()
                                 service.createDialogNode(createDialogNodeOptions).enqueue(object : ServiceCallback<DialogNode> {
                                     override fun onResponse(response: DialogNode) {
-                                        //dialogUpdateFragment.dismiss()
+                                        dialogUpdateFragment.dismiss()
                                         activity!!.runOnUiThread({ progressDialog!!.dismiss() })
                                     }
 
@@ -290,9 +292,9 @@ class ChatBootFragment : BaseFragment() {
 
                     activity!!.runOnUiThread({
                         mAdapter!!.notifyDataSetChanged()
-                        if (mAdapter!!.getItemCount() > 1) {
-                            recycler_view!!.getLayoutManager().smoothScrollToPosition(recycler_view,
-                                    null, mAdapter!!.getItemCount() - 1)
+                        if (mAdapter!!.itemCount > 1) {
+                            recycler_view!!.layoutManager.smoothScrollToPosition(recycler_view,
+                                    null, mAdapter!!.itemCount - 1)
                         }
                     })
                 }
