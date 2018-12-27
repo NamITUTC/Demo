@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.GridView
 import android.widget.ImageView
+import com.example.nam.demobasekotlin.App
 import com.example.nam.demobasekotlin.R
 import com.example.nam.demobasekotlin.base.BaseFragment
 import com.example.nam.demobasekotlin.base.BasePresenter
@@ -48,8 +49,10 @@ class ChatFragment : BaseFragment(), View.OnClickListener, ChatView, IitemClick,
     private lateinit var mLinkImageAdapter: LinkImageAdapter
     private var count = 0
     private var mImgUserSend: String = ""
+    lateinit var mChatItem: Chat
+    var s: String = ""
 
-    var mChatItem = Chat("lBWkBdO2ftb1rirFc4ueQqWebxg1", null, null, null, null)
+
     override fun injectDependence() {
         component.inject(this)
     }
@@ -59,6 +62,13 @@ class ChatFragment : BaseFragment(), View.OnClickListener, ChatView, IitemClick,
     }
 
     override fun initData() {
+        if (App.get().uId == "HOwOHnJeQJOCFIgL2Rhued6U0Ib2") {
+            s = "lBWkBdO2ftb1rirFc4ueQqWebxg1"
+        }
+        if (App.get().uId == "lBWkBdO2ftb1rirFc4ueQqWebxg1") {
+            s = "HOwOHnJeQJOCFIgL2Rhued6U0Ib2"
+        }
+        mChatItem = Chat(s, null, null, null, null)
         mImageAdapter = ListImageAdapter(mListImage, activity!!, this, false)
         mChatAdapter = ChatAdapter(mMessage = mMessages, mContext = activity!!, isend = this, chatItem = mChatItem, mImgUserSend = mImgUserSend)
 
@@ -67,6 +77,7 @@ class ChatFragment : BaseFragment(), View.OnClickListener, ChatView, IitemClick,
             adapter = mChatAdapter
             layoutManager = LinearLayoutManager(context)
         }
+
         presenter.getListChat(mChatItem)
     }
 
@@ -103,7 +114,7 @@ class ChatFragment : BaseFragment(), View.OnClickListener, ChatView, IitemClick,
         mMessages = messages
         mChatAdapter.mMessage = messages
         mChatAdapter.notifyDataSetChanged()
-        rc_chat.smoothScrollToPosition(messages.size)
+        rc_chat.smoothScrollToPosition(messages.size+10)
     }
 
     override fun getListImageSuccess(absolutePathOfImage: MutableList<String>) {

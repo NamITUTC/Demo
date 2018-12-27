@@ -40,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="@dimen/dimen_10dp"
+                android:visibility="invisible"
                 android:src="@drawable/ic_image" />
 
 
